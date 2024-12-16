@@ -15,6 +15,7 @@ use App\Http\Controllers\Pos\PurchaseController;
 use App\Http\Controllers\Pos\DefaultController;
 use App\Http\Controllers\Pos\InvoiceController;
 use App\Http\Controllers\Pos\StockController;
+use App\Http\Controllers\Pos\LocationController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -119,6 +120,17 @@ Route::middleware('auth')->group(function() {
         Route::get('/group/edit/{id}', 'GroupEdit')->name('group.edit');
         Route::post('/group/update', 'GroupUpdate')->name('group.update');
         Route::get('/group/delete/{id}', 'GroupDelete')->name('group.delete');
+    });
+
+
+    // Location All Route
+    Route::controller(LocationController::class)->group(function () {
+        Route::get('/location/all', 'LocationAll')->name('location.all');
+        Route::get('/location/add', 'LocationAdd')->name('location.add');
+        Route::post('/location/store', 'LocationStore')->name('location.store');
+        Route::get('/location/edit/{id}', 'LocationEdit')->name('location.edit');
+        Route::post('/location/update', 'LocationUpdate')->name('location.update');
+        Route::get('/location/delete/{id}', 'LocationDelete')->name('location.delete');
     });
 
 

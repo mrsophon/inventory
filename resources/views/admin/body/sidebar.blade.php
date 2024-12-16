@@ -128,7 +128,7 @@
                         <li><a href="{{ route('category.all') }}">Category</a></li>
                         <li><a href="#">Currency Rate</a></li>
                         <li><a href="{{ route('group.all') }}">Group</a></li>
-                        <li><a href="#">Location</a></li>
+                        <li><a href="{{ route('location.all') }}">Location</a></li>
                         <li><a href="#">Payment Type</a></li>
                         <li><a href="{{ route('type.all') }}">Product Type</a></li>
                         <li><a href="#">Running Number</a></li>

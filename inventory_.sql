@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 16, 2024 at 12:03 PM
+-- Generation Time: Aug 21, 2023 at 05:43 PM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -203,31 +203,6 @@ CREATE TABLE IF NOT EXISTS `invoice_details` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `locations`
---
-
-CREATE TABLE IF NOT EXISTS `locations` (
-  `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT,
-  `name` varchar(255) DEFAULT NULL,
-  `status` tinyint(4) NOT NULL DEFAULT 1,
-  `created_by` int(11) DEFAULT NULL,
-  `updated_by` int(11) DEFAULT NULL,
-  `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
---
--- Dumping data for table `locations`
---
-
-INSERT INTO `locations` (`id`, `name`, `status`, `created_by`, `updated_by`, `created_at`, `updated_at`) VALUES
-(1, 'No Location', 1, 1, 1, '2024-12-16 10:52:03', '2024-12-16 10:52:23'),
-(2, 'TJM', 1, 1, NULL, '2024-12-16 10:52:51', NULL);
-
--- --------------------------------------------------------
-
---
 -- Table structure for table `migrations`
 --
 
@@ -236,7 +211,7 @@ CREATE TABLE IF NOT EXISTS `migrations` (
   `migration` varchar(255) NOT NULL,
   `batch` int(11) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=21 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci ROW_FORMAT=DYNAMIC;
+) ENGINE=InnoDB AUTO_INCREMENT=19 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci ROW_FORMAT=DYNAMIC;
 
 --
 -- Dumping data for table `migrations`
@@ -260,9 +235,7 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 (15, '2023_08_07_215738_create_brands_table', 2),
 (16, '2023_08_14_204246_create_groups_table', 3),
 (17, '2023_08_15_220628_create_types_table', 4),
-(18, '2023_08_21_220311_add_hidden_to_groups', 5),
-(19, '2024_12_16_162148_create_locations_table', 6),
-(20, '2024_12_16_165148_create_locations_table', 7);
+(18, '2023_08_21_220311_add_hidden_to_groups', 5);
 
 -- --------------------------------------------------------
 
