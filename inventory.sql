@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 16, 2024 at 12:03 PM
+-- Generation Time: Jan 16, 2025 at 11:28 AM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -236,7 +236,7 @@ CREATE TABLE IF NOT EXISTS `migrations` (
   `migration` varchar(255) NOT NULL,
   `batch` int(11) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=21 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci ROW_FORMAT=DYNAMIC;
+) ENGINE=InnoDB AUTO_INCREMENT=22 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci ROW_FORMAT=DYNAMIC;
 
 --
 -- Dumping data for table `migrations`
@@ -262,7 +262,8 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 (17, '2023_08_15_220628_create_types_table', 4),
 (18, '2023_08_21_220311_add_hidden_to_groups', 5),
 (19, '2024_12_16_162148_create_locations_table', 6),
-(20, '2024_12_16_165148_create_locations_table', 7);
+(20, '2024_12_16_165148_create_locations_table', 7),
+(21, '2025_01_16_145737_create_paytypes_table', 8);
 
 -- --------------------------------------------------------
 
@@ -313,6 +314,43 @@ CREATE TABLE IF NOT EXISTS `payment_details` (
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci ROW_FORMAT=DYNAMIC;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `paytypes`
+--
+
+CREATE TABLE IF NOT EXISTS `paytypes` (
+  `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT,
+  `name` varchar(255) DEFAULT NULL,
+  `status` tinyint(4) NOT NULL DEFAULT 1,
+  `created_by` int(11) DEFAULT NULL,
+  `updated_by` int(11) DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `paytypes`
+--
+
+INSERT INTO `paytypes` (`id`, `name`, `status`, `created_by`, `updated_by`, `created_at`, `updated_at`) VALUES
+(1, 'Cash (THB)-A', 1, 1, 1, '2025-01-16 09:40:11', '2025-01-16 09:43:22'),
+(2, 'Credit Card-A', 1, 1, 1, '2025-01-16 09:40:27', '2025-01-16 09:43:46'),
+(3, 'T/T', 1, 1, NULL, '2025-01-16 09:40:33', NULL),
+(4, 'Consignment', 1, 1, NULL, '2025-01-16 09:40:50', NULL),
+(5, 'Sales Discount', 1, 1, NULL, '2025-01-16 09:41:02', NULL),
+(6, 'Cash Voucher', 1, 1, NULL, '2025-01-16 09:41:10', NULL),
+(7, '30 Days', 1, 1, NULL, '2025-01-16 09:41:20', NULL),
+(8, 'Debit Card', 1, 1, NULL, '2025-01-16 09:41:29', NULL),
+(9, 'WeChat Pay', 1, 1, NULL, '2025-01-16 09:41:38', NULL),
+(10, 'Ali Pay', 1, 1, NULL, '2025-01-16 09:41:45', NULL),
+(11, 'Cash (Foreign)-A', 1, 1, NULL, '2025-01-16 09:43:03', NULL),
+(12, 'Cash (Foreign)-B', 1, 1, NULL, '2025-01-16 09:44:05', NULL),
+(13, 'Cash (THB)-B', 1, 1, NULL, '2025-01-16 09:50:16', NULL),
+(14, 'Credit Card-B', 1, 1, NULL, '2025-01-16 09:50:48', NULL);
 
 -- --------------------------------------------------------
 

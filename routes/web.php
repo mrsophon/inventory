@@ -16,6 +16,7 @@ use App\Http\Controllers\Pos\DefaultController;
 use App\Http\Controllers\Pos\InvoiceController;
 use App\Http\Controllers\Pos\StockController;
 use App\Http\Controllers\Pos\LocationController;
+use App\Http\Controllers\Pos\PaytypeController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -131,6 +132,17 @@ Route::middleware('auth')->group(function() {
         Route::get('/location/edit/{id}', 'LocationEdit')->name('location.edit');
         Route::post('/location/update', 'LocationUpdate')->name('location.update');
         Route::get('/location/delete/{id}', 'LocationDelete')->name('location.delete');
+    });
+
+
+    // Payment Type All Route
+    Route::controller(PaytypeController::class)->group(function () {
+        Route::get('/paytype/all', 'PaytypeAll')->name('paytype.all');
+        Route::get('/paytype/add', 'PaytypeAdd')->name('paytype.add');
+        Route::post('/paytype/store', 'PaytypeStore')->name('paytype.store');
+        Route::get('/paytype/edit/{id}', 'PaytypeEdit')->name('paytype.edit');
+        Route::post('/paytype/update', 'PaytypeUpdate')->name('paytype.update');
+        Route::get('/paytype/delete/{id}', 'PaytypeDelete')->name('paytype.delete');
     });
 
 
