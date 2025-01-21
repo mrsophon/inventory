@@ -127,6 +127,7 @@
                         <li><a href="{{ route('brand.all') }}">Brand</a></li>
                         <li><a href="{{ route('category.all') }}">Category</a></li>
                         <li><a href="#">Currency Rate</a></li>
+                        <li><a href="{{ route('emptype.all') }}">Employee Type</a></li>
                         <li><a href="{{ route('group.all') }}">Group</a></li>
                         <li><a href="{{ route('location.all') }}">Location</a></li>
                         <li><a href="{{ route('paytype.all') }}">Payment Type</a></li>

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 16, 2025 at 11:28 AM
+-- Generation Time: Jan 21, 2025 at 12:06 PM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -105,6 +105,33 @@ INSERT INTO `customers` (`id`, `name`, `customer_image`, `mobile_no`, `email`, `
 (1, 'Hasan2', 'upload/customer/1.7483940954775E+15.jpg', '123456789', 'hasan1@gmail.com', 'India11', 1, 2, 2, '2022-11-02 07:15:08', '2022-11-02 07:15:43'),
 (2, 'Moni', 'upload/customer/1.7483942075313E+15.png', '012345678', 'moni@gmail.com', 'USA', 1, 2, NULL, '2022-11-02 07:17:30', NULL),
 (3, 'Ariyan', 'upload/customer/1.7483951291838E+15.jpg', '0175566999', 'ariyan@gmail.com', 'Uttara Usa', 1, 2, NULL, '2022-11-02 07:32:09', NULL);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `emptypes`
+--
+
+CREATE TABLE IF NOT EXISTS `emptypes` (
+  `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT,
+  `name` varchar(255) DEFAULT NULL,
+  `status` tinyint(4) NOT NULL DEFAULT 1,
+  `created_by` int(11) DEFAULT NULL,
+  `updated_by` int(11) DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `emptypes`
+--
+
+INSERT INTO `emptypes` (`id`, `name`, `status`, `created_by`, `updated_by`, `created_at`, `updated_at`) VALUES
+(1, 'บุคคล', 1, 1, NULL, '2025-01-21 11:02:31', NULL),
+(2, 'กลุ่ม', 1, 1, NULL, '2025-01-21 11:02:52', NULL),
+(3, 'โรงงาน', 1, 1, NULL, '2025-01-21 11:03:02', NULL),
+(4, '-', 1, 1, NULL, '2025-01-21 11:03:08', NULL);
 
 -- --------------------------------------------------------
 
@@ -236,7 +263,7 @@ CREATE TABLE IF NOT EXISTS `migrations` (
   `migration` varchar(255) NOT NULL,
   `batch` int(11) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=22 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci ROW_FORMAT=DYNAMIC;
+) ENGINE=InnoDB AUTO_INCREMENT=23 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci ROW_FORMAT=DYNAMIC;
 
 --
 -- Dumping data for table `migrations`
@@ -263,7 +290,8 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 (18, '2023_08_21_220311_add_hidden_to_groups', 5),
 (19, '2024_12_16_162148_create_locations_table', 6),
 (20, '2024_12_16_165148_create_locations_table', 7),
-(21, '2025_01_16_145737_create_paytypes_table', 8);
+(21, '2025_01_16_145737_create_paytypes_table', 8),
+(22, '2025_01_21_174419_create_emptypes_table', 9);
 
 -- --------------------------------------------------------
 

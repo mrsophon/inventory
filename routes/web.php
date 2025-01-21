@@ -17,6 +17,7 @@ use App\Http\Controllers\Pos\InvoiceController;
 use App\Http\Controllers\Pos\StockController;
 use App\Http\Controllers\Pos\LocationController;
 use App\Http\Controllers\Pos\PaytypeController;
+use App\Http\Controllers\Pos\EmptypeController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -99,6 +100,17 @@ Route::middleware('auth')->group(function() {
         Route::get('/category/edit/{id}', 'CategoryEdit')->name('category.edit');
         Route::post('/category/update', 'CategoryUpdate')->name('category.update');
         Route::get('/category/delete/{id}', 'CategoryDelete')->name('category.delete');
+    });
+
+
+    // Employee Type All Route
+    Route::controller(EmptypeController::class)->group(function () {
+        Route::get('/emptype/all', 'EmptypeAll')->name('emptype.all');
+        Route::get('/emptype/add', 'EmptypeAdd')->name('emptype.add');
+        Route::post('/emptype/store', 'EmptypeStore')->name('emptype.store');
+        Route::get('/emptype/edit/{id}', 'EmptypeEdit')->name('emptype.edit');
+        Route::post('/emptype/update', 'EmptypeUpdate')->name('emptype.update');
+        Route::get('/emptype/delete/{id}', 'EmptypeDelete')->name('emptype.delete');
     });
 
 
