@@ -18,6 +18,7 @@ use App\Http\Controllers\Pos\StockController;
 use App\Http\Controllers\Pos\LocationController;
 use App\Http\Controllers\Pos\PaytypeController;
 use App\Http\Controllers\Pos\EmptypeController;
+use App\Http\Controllers\Pos\VatController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -166,6 +167,17 @@ Route::middleware('auth')->group(function() {
         Route::get('/type/edit/{id}', 'TypeEdit')->name('type.edit');
         Route::post('/type/update', 'TypeUpdate')->name('type.update');
         Route::get('/type/delete/{id}', 'TypeDelete')->name('type.delete');
+    });
+
+
+    // Vat All Route
+    Route::controller(VatController::class)->group(function () {
+        Route::get('/vat/all', 'VatAll')->name('vat.all');
+        Route::get('/vat/add', 'VatAdd')->name('vat.add');
+        Route::post('/vat/store', 'VatStore')->name('vat.store');
+        Route::get('/vat/edit/{id}', 'VatEdit')->name('vat.edit');
+        Route::post('/vat/update', 'VatUpdate')->name('vat.update');
+        Route::get('/vat/delete/{id}', 'VatDelete')->name('vat.delete');
     });
 
 

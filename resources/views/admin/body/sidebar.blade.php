@@ -134,7 +134,7 @@
                         <li><a href="{{ route('type.all') }}">Product Type</a></li>
                         <li><a href="#">Running Number</a></li>
                         <li><a href="{{ route('unit.all') }}">Unit</a></li>
-                        <li><a href="#">Vat</a></li>
+                        <li><a href="{{ route('vat.all') }}">Vat</a></li>
 
                     </ul>
                 </li>
@@ -145,6 +145,9 @@
                         <i class="ri-shield-user-fill"></i>
                         <span>Employee</span>
                     </a>
+                    <ul class="sub-menu" aria-expanded="false">
+                        <li><a href="#">All Employees</a></li>
+                    </ul>
                 </li>
 
 
