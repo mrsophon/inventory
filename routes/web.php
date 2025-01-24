@@ -19,6 +19,7 @@ use App\Http\Controllers\Pos\LocationController;
 use App\Http\Controllers\Pos\PaytypeController;
 use App\Http\Controllers\Pos\EmptypeController;
 use App\Http\Controllers\Pos\VatController;
+use App\Http\Controllers\Pos\EmployeeController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -233,6 +234,17 @@ Route::middleware('auth')->group(function() {
         Route::get('/stock/supplier/wise', 'StockSupplierWise')->name('stock.supplier.wise');
         Route::get('/supplier/wise/pdf', 'SupplierWisePdf')->name('supplier.wise.pdf');
         Route::get('/product/wise/pdf', 'ProductWisePdf')->name('product.wise.pdf');
+    });
+
+
+    // Employee All Route
+    Route::controller(EmployeeController::class)->group(function () {
+        Route::get('/employee/all', 'EmployeeAll')->name('employee.all');
+        Route::get('/employee/add', 'EmployeeAdd')->name('employee.add');
+        Route::post('/employee/store', 'EmployeeStore')->name('employee.store');
+        Route::get('/employee/edit/{id}', 'EmployeeEdit')->name('employee.edit');
+        Route::post('/employee/update', 'EmployeeUpdate')->name('employee.update');
+        Route::get('/employee/delete/{id}', 'EmployeeDelete')->name('employee.delete');
     });
 
 }); // End Group Middleware

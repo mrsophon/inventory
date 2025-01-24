@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 21, 2025 at 12:06 PM
+-- Generation Time: Jan 24, 2025 at 12:07 PM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -105,6 +105,28 @@ INSERT INTO `customers` (`id`, `name`, `customer_image`, `mobile_no`, `email`, `
 (1, 'Hasan2', 'upload/customer/1.7483940954775E+15.jpg', '123456789', 'hasan1@gmail.com', 'India11', 1, 2, 2, '2022-11-02 07:15:08', '2022-11-02 07:15:43'),
 (2, 'Moni', 'upload/customer/1.7483942075313E+15.png', '012345678', 'moni@gmail.com', 'USA', 1, 2, NULL, '2022-11-02 07:17:30', NULL),
 (3, 'Ariyan', 'upload/customer/1.7483951291838E+15.jpg', '0175566999', 'ariyan@gmail.com', 'Uttara Usa', 1, 2, NULL, '2022-11-02 07:32:09', NULL);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `employees`
+--
+
+CREATE TABLE IF NOT EXISTS `employees` (
+  `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT,
+  `name` varchar(255) DEFAULT NULL,
+  `emptype_id` int(11) NOT NULL,
+  `employee_image` varchar(255) DEFAULT NULL,
+  `mobile_no` varchar(255) DEFAULT NULL,
+  `email` varchar(255) DEFAULT NULL,
+  `address` varchar(255) DEFAULT NULL,
+  `status` tinyint(4) NOT NULL DEFAULT 1,
+  `created_by` int(11) DEFAULT NULL,
+  `updated_by` int(11) DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- --------------------------------------------------------
 
@@ -263,7 +285,7 @@ CREATE TABLE IF NOT EXISTS `migrations` (
   `migration` varchar(255) NOT NULL,
   `batch` int(11) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=23 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci ROW_FORMAT=DYNAMIC;
+) ENGINE=InnoDB AUTO_INCREMENT=25 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci ROW_FORMAT=DYNAMIC;
 
 --
 -- Dumping data for table `migrations`
@@ -291,7 +313,9 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 (19, '2024_12_16_162148_create_locations_table', 6),
 (20, '2024_12_16_165148_create_locations_table', 7),
 (21, '2025_01_16_145737_create_paytypes_table', 8),
-(22, '2025_01_21_174419_create_emptypes_table', 9);
+(22, '2025_01_21_174419_create_emptypes_table', 9),
+(23, '2025_01_23_174049_create_vats_table', 10),
+(24, '2025_01_24_175426_create_employees_table', 11);
 
 -- --------------------------------------------------------
 
@@ -584,6 +608,33 @@ INSERT INTO `users` (`id`, `name`, `email`, `email_verified_at`, `password`, `us
 (2, 'Kazi', 'kazi@gmail.com', '2022-03-09 17:14:32', '$2y$10$cdhHGJTOuPvl5jIlTKInWuk57U0fOnWuTpX8S4IU47H1jOYiMTa4C', 'kazi', '202203112033ariyan.jpg', NULL, '2022-03-09 17:12:44', '2022-03-11 15:57:21'),
 (4, 'Demo', 'demo@gmail.com', '2022-03-09 17:54:03', '$2y$10$Ne1R842eJJw7VpVZ.jv31ulN12pHgAVKvx9JiB1nNfABYU/EwbvVy', 'demo', NULL, NULL, '2022-03-09 17:53:48', '2022-03-09 17:54:03'),
 (5, 'TEST', 'test@gmail.com', '2022-03-10 14:14:10', '$2y$10$6pvyEf0zI1lnLrZLA8f2sO36IaTsRJizUrpT9Tp1IrZKRlZlCAYEO', 'test', NULL, NULL, '2022-03-10 13:52:07', '2022-03-10 14:14:10');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `vats`
+--
+
+CREATE TABLE IF NOT EXISTS `vats` (
+  `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT,
+  `name` varchar(255) DEFAULT NULL,
+  `rate` double DEFAULT NULL,
+  `status` tinyint(4) NOT NULL DEFAULT 1,
+  `created_by` int(11) DEFAULT NULL,
+  `updated_by` int(11) DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `vats`
+--
+
+INSERT INTO `vats` (`id`, `name`, `rate`, `status`, `created_by`, `updated_by`, `created_at`, `updated_at`) VALUES
+(1, 'Exclude', 7, 1, 1, 1, '2025-01-24 08:33:58', '2025-01-24 09:03:25'),
+(2, 'Include', 7, 1, 1, 1, '2025-01-24 09:09:19', '2025-01-24 09:25:00'),
+(3, 'No Vat', 0, 1, 1, 1, '2025-01-24 09:23:35', '2025-01-24 09:24:25');
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
