@@ -9,4 +9,8 @@ class Employee extends Model
 {
     use HasFactory;
     protected $guarded = [];
+
+    public function emptype(){
+        return $this->belongsTo(Emptype::class,'emptype_id','id');
+    }
 }

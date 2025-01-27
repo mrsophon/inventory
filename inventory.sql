@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 24, 2025 at 12:07 PM
+-- Generation Time: Jan 27, 2025 at 12:11 PM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -126,7 +126,15 @@ CREATE TABLE IF NOT EXISTS `employees` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `employees`
+--
+
+INSERT INTO `employees` (`id`, `name`, `emptype_id`, `employee_image`, `mobile_no`, `email`, `address`, `status`, `created_by`, `updated_by`, `created_at`, `updated_at`) VALUES
+(1, 'สมชาย ตัวอย่าง', 1, 'upload/employee/1822390070247406.jpg', '0812345678', 'somchai@mail.com', '123', 1, 1, NULL, '2025-01-27 08:30:04', NULL),
+(2, 'สมหญิง 2', 2, 'upload/employee/1822398476249667.jpg', '08123478901', 'abcd@mail.com', '4567', 1, 1, 1, '2025-01-27 10:43:41', '2025-01-27 11:08:18');
 
 -- --------------------------------------------------------
 
