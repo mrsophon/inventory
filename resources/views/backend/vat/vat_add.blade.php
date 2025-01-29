@@ -1,5 +1,6 @@
 @extends('admin.admin_master')
 @section('admin')
+
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
 <div class="page-content">
@@ -11,7 +12,7 @@
 
                         <h4 class="card-title">Add Vat</h4><br><br>
 
-                        <form method="post" action="{{ route('vat.store') }}" id="myForm" >
+                        <form method="post" action="{{ route('vat.store') }}" id="myForm">
                             @csrf
 
                             <div class="row mb-3">
@@ -24,7 +25,8 @@
                             <div class="row mb-3">
                                 <label for="example-text-input" class="col-sm-2 col-form-label">Vat Rate</label>
                                 <div class="form-group col-sm-10">
-                                    <input name="rate" class="form-control" type="number" step="0.01" placeholder="0.00">
+                                    <input name="rate" class="form-control" type="number" step="0.01"
+                                        placeholder="0.00">
                                 </div>
                             </div>
                             <!-- end row -->
@@ -41,37 +43,37 @@
 </div>
 
 <script type="text/javascript">
-    $(document).ready(function (){
-        $('#myForm').validate({
-            rules: {
-                name: {
-                    required : true,
-                },
-                rate: {
-                    required : true,
-                },
+$(document).ready(function() {
+    $('#myForm').validate({
+        rules: {
+            name: {
+                required: true,
             },
-            messages :{
-                name: {
-                    required : 'Please Enter Name',
-                },
-                rate: {
-                    required : 'Please Enter Rate',
-                },
+            rate: {
+                required: true,
             },
-            errorElement : 'span',
-            errorPlacement: function (error,element) {
-                error.addClass('invalid-feedback');
-                element.closest('.form-group').append(error);
+        },
+        messages: {
+            name: {
+                required: 'Please Enter Name',
             },
-            highlight : function(element, errorClass, validClass){
-                $(element).addClass('is-invalid');
+            rate: {
+                required: 'Please Enter Rate',
             },
-            unhighlight : function(element, errorClass, validClass){
-                $(element).removeClass('is-invalid');
-            },
-        });
+        },
+        errorElement: 'span',
+        errorPlacement: function(error, element) {
+            error.addClass('invalid-feedback');
+            element.closest('.form-group').append(error);
+        },
+        highlight: function(element, errorClass, validClass) {
+            $(element).addClass('is-invalid');
+        },
+        unhighlight: function(element, errorClass, validClass) {
+            $(element).removeClass('is-invalid');
+        },
     });
+});
 </script>
 
 @endsection

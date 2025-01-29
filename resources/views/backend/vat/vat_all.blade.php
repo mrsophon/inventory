@@ -21,11 +21,14 @@
                 <div class="card">
                     <div class="card-body">
 
-                        <a href="{{ route('vat.add') }}" class="btn btn-dark btn-rounded waves-effect waves-light" style="float:right;"><i class="fas fa-plus-circle"><span style="font-family:tahoma; font-weight: normal;"> Add Vat</span></i></a> <br> <br>
+                        <a href="{{ route('vat.add') }}" class="btn btn-dark btn-rounded waves-effect waves-light"
+                            style="float:right;"><i class="fas fa-plus-circle"><span
+                                    style="font-family:tahoma; font-weight: normal;"> Add Vat</span></i></a> <br> <br>
 
                         <h4 class="card-title">Vat All Data</h4>
 
-                        <table id="datatable" class="table table-bordered dt-responsive nowrap" style="border-collapse: collapse; border-spacing: 0; width: 100%;">
+                        <table id="datatable" class="table table-bordered dt-responsive nowrap"
+                            style="border-collapse: collapse; border-spacing: 0; width: 100%;">
                             <thead>
                                 <tr>
                                     <th width="5%">Sl</th>
@@ -37,15 +40,17 @@
 
                             <tbody>
                                 @foreach($vats as $key => $item)
-                                    <tr>
-                                        <td> {{ $key+1}} </td>
-                                        <td> {{ $item->name }} </td>
-                                        <td> {{ $item->rate }} </td>
-                                        <td>
-                                            <a href="{{ route('vat.edit',$item->id) }}" class="btn btn-info sm" title="Edit Data">  <i class="fas fa-edit"></i> </a>
-                                            <a href="{{ route('vat.delete',$item->id) }}" class="btn btn-danger sm" title="Delete Data" id="delete"> <i class="fas fa-trash-alt"></i> </a>
-                                        </td>
-                                    </tr>
+                                <tr>
+                                    <td> {{ $key+1}} </td>
+                                    <td> {{ $item->name }} </td>
+                                    <td> {{ $item->rate }} </td>
+                                    <td>
+                                        <a href="{{ route('vat.edit',$item->id) }}" class="btn btn-info sm"
+                                            title="Edit Data"> <i class="fas fa-edit"></i> </a>
+                                        <a href="{{ route('vat.delete',$item->id) }}" class="btn btn-danger sm"
+                                            title="Delete Data" id="delete"> <i class="fas fa-trash-alt"></i> </a>
+                                    </td>
+                                </tr>
                                 @endforeach
                             </tbody>
                         </table>
