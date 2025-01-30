@@ -1,6 +1,5 @@
 @extends('admin.admin_master')
 @section('admin')
-
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
 <div class="page-content">
@@ -89,12 +88,10 @@
                             <input type="submit" class="btn btn-info waves-effect waves-light" value="Update Employee">
                             <a href="{{ url()->previous() }}" class="btn btn-danger waves-effect waves-light">Cancel</a>
                         </form>
-
                     </div>
                 </div>
             </div> <!-- end col -->
         </div>
-
     </div>
 </div>
 

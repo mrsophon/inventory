@@ -25,7 +25,6 @@
             <div class="col-12">
                 <div class="card">
                     <div class="card-body">
-
                         <div class="row">
                             <div class="col-12">
                                 <div class="invoice-title">
@@ -71,7 +70,6 @@
                                     </div>
                                     <div class="">
                                         <div class="table-responsive">
-
                                             <table class="table">
                                                 <thead>
                                                     <tr>
@@ -117,7 +115,6 @@
                 </div>
             </div> <!-- end col -->
         </div> <!-- end row -->
-
     </div> <!-- container-fluid -->
 </div>
 

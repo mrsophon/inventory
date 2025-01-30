@@ -4,7 +4,6 @@
 
 <div class="page-content">
     <div class="container-fluid">
-
         <div class="row">
             <div class="col-12">
                 <div class="card">
@@ -12,9 +11,7 @@
 
                         <h4 class="card-title">Add Invoice </h4><br><br>
 
-
                         <div class="row">
-
                             <div class="col-md-1">
                                 <div class="md-3">
                                     <label for="example-text-input" class="form-label">Inv No</label>
@@ -24,7 +21,6 @@
                                 </div>
                             </div>
 
-
                             <div class="col-md-2">
                                 <div class="md-3">
                                     <label for="example-text-input" class="form-label">Date</label>
@@ -32,7 +28,6 @@
                                         type="date" id="date">
                                 </div>
                             </div>
-
 
                             <div class="col-md-3">
                                 <div class="md-3">
@@ -47,18 +42,15 @@
                                 </div>
                             </div>
 
-
                             <div class="col-md-3">
                                 <div class="md-3">
                                     <label for="example-text-input" class="form-label">Product Name </label>
                                     <select name="product_id" id="product_id" class="form-select select2"
                                         aria-label="Default select example">
                                         <option selected="">Open this select menu</option>
-
                                     </select>
                                 </div>
                             </div>
-
 
                             <div class="col-md-1">
                                 <div class="md-3">
@@ -68,25 +60,16 @@
                                 </div>
                             </div>
 
-
                             <div class="col-md-2">
                                 <div class="md-3">
                                     <label for="example-text-input" class="form-label" style="margin-top:43px;">
                                     </label>
-
-
                                     <i
                                         class="btn btn-secondary btn-rounded waves-effect waves-light fas fa-plus-circle addeventmore">
                                         Add More</i>
                                 </div>
                             </div>
-
-
-
-
-
                         </div> <!-- // end row  -->
-
                     </div> <!-- End card-body -->
                     <!--  ---------------------------------- -->
 
@@ -102,7 +85,6 @@
                                         <th width="10%">Unit Price </th>
                                         <th width="15%">Total Price</th>
                                         <th width="7%">Action</th>
-
                                     </tr>
                                 </thead>
 
@@ -119,7 +101,6 @@
                                         </td>
                                     </tr>
 
-
                                     <tr>
                                         <td colspan="4"> Grand Total</td>
                                         <td>
@@ -129,10 +110,8 @@
                                         </td>
                                         <td></td>
                                     </tr>
-
                                 </tbody>
                             </table><br>
-
 
                             <div class="form-row">
                                 <div class="form-group col-md-12">
@@ -149,12 +128,10 @@
                                         <option value="full_paid">Full Paid </option>
                                         <option value="full_due">Full Due </option>
                                         <option value="partial_paid">Partial Paid </option>
-
                                     </select>
                                     <input type="text" name="paid_amount" class="form-control paid_amount"
                                         placeholder="Enter Paid Amount" style="display:none;">
                                 </div>
-
 
                                 <div class="form-group col-md-9">
                                     <label> Customer Name </label>
@@ -193,73 +170,46 @@
                                 <button type="submit" class="btn btn-info" id="storeButton"> Invoice Store</button>
 
                             </div>
-
                         </form>
-
-
-
-
-
-
                     </div> <!-- End card-body -->
-
-
-
-
-
-
-
                 </div>
             </div> <!-- end col -->
         </div>
-
-
-
     </div>
 </div>
 
-
-
-
 <script id="document-template" type="text/x-handlebars-template">
-
     <tr class="delete_add_more_item" id="delete_add_more_item">
         <input type="hidden" name="date" value="@{{date}}">
         <input type="hidden" name="invoice_no" value="@{{invoice_no}}">
-        
-   
-    <td>
-        <input type="hidden" name="category_id[]" value="@{{category_id}}">
-        @{{ category_name }}
-    </td>
 
-     <td>
-        <input type="hidden" name="product_id[]" value="@{{product_id}}">
-        @{{ product_name }}
-    </td>
+        <td>
+            <input type="hidden" name="category_id[]" value="@{{category_id}}">
+            @{{ category_name }}
+        </td>
 
-     <td>
-        <input type="number" min="1" class="form-control selling_qty text-right" name="selling_qty[]" value=""> 
-    </td>
+        <td>
+            <input type="hidden" name="product_id[]" value="@{{product_id}}">
+            @{{ product_name }}
+        </td>
 
-    <td>
-        <input type="number" class="form-control unit_price text-right" name="unit_price[]" value=""> 
-    </td>
+        <td>
+            <input type="number" min="1" class="form-control selling_qty text-right" name="selling_qty[]" value=""> 
+        </td>
 
-  
+        <td>
+            <input type="number" class="form-control unit_price text-right" name="unit_price[]" value=""> 
+        </td>
 
-     <td>
-        <input type="number" class="form-control selling_price text-right" name="selling_price[]" value="0" readonly> 
-    </td>
+        <td>
+            <input type="number" class="form-control selling_price text-right" name="selling_price[]" value="0" readonly> 
+        </td>
 
-     <td>
-        <i class="btn btn-danger btn-sm fas fa-window-close removeeventmore"></i>
-    </td>
-
+        <td>
+            <i class="btn btn-danger btn-sm fas fa-window-close removeeventmore"></i>
+        </td>
     </tr>
-
 </script>
-
 
 <script type="text/javascript">
 $(document).ready(function() {
@@ -270,7 +220,6 @@ $(document).ready(function() {
         var category_name = $('#category_id').find('option:selected').text();
         var product_id = $('#product_id').val();
         var product_name = $('#product_id').find('option:selected').text();
-
 
         if (date == '') {
             $.notify("Date is Required", {
@@ -287,6 +236,7 @@ $(document).ready(function() {
             });
             return false;
         }
+
         if (product_id == '') {
             $.notify("Product Field is Required", {
                 globalPosition: 'top right',
@@ -294,7 +244,6 @@ $(document).ready(function() {
             });
             return false;
         }
-
 
         var source = $("#document-template").html();
         var tamplate = Handlebars.compile(source);
@@ -346,10 +295,8 @@ $(document).ready(function() {
 
         $('#estimated_amount').val(sum);
     }
-
 });
 </script>
-
 
 <script type="text/javascript">
 $(function() {
@@ -392,7 +339,6 @@ $(function() {
 });
 </script>
 
-
 <script type="text/javascript">
 $(document).on('change', '#paid_status', function() {
     var paid_status = $(this).val();
@@ -412,9 +358,5 @@ $(document).on('change', '#customer_id', function() {
     }
 });
 </script>
-
-
-
-
 
 @endsection

@@ -1,6 +1,5 @@
 @extends('admin.admin_master')
 @section('admin')
-
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
 <div class="page-content">
@@ -73,6 +72,7 @@
 
                                     <div>
                                         <div class="p-2">
+
                                         </div>
                                         <div class="">
                                             <div class="table-responsive">
@@ -94,7 +94,6 @@
                                                         $total_sum = '0';
                                                         $invoice_details =
                                                         App\Models\InvoiceDetail::where('invoice_id',$payment->invoice_id)->get();
-
                                                         @endphp
                                                         @foreach($invoice_details as $key => $details)
                                                         <tr>
@@ -145,7 +144,6 @@
                                                             <td class="no-line text-end">${{ $payment->paid_amount }}
                                                             </td>
                                                         </tr>
-
                                                         <tr>
                                                             <td class="no-line"></td>
                                                             <td class="no-line"></td>
@@ -206,14 +204,12 @@
                                         </div>
                                     </div>
                                 </form>
-
                             </div>
                         </div> <!-- end row -->
                     </div>
                 </div>
             </div> <!-- end col -->
         </div> <!-- end row -->
-
     </div> <!-- container-fluid -->
 </div>
 

@@ -1,7 +1,6 @@
 @extends('admin.admin_master')
 @section('admin')
 
-
 <div class="page-content">
     <div class="container-fluid">
 
@@ -10,9 +9,6 @@
             <div class="col-12">
                 <div class="page-title-box d-sm-flex  align-items-center justify-content-between">
                     <h4 class="mb-sm-0">Credit Customer All</h4>
-
-
-
                 </div>
             </div>
         </div>
@@ -29,7 +25,6 @@
 
                         <h4 class="card-title">Credit Customer Data </h4>
 
-
                         <table id="datatable" class="table table-bordered dt-responsive nowrap"
                             style="border-collapse: collapse; border-spacing: 0; width: 100%;">
                             <thead>
@@ -40,12 +35,8 @@
                                     <th>Date</th>
                                     <th>Due Amount</th>
                                     <th>Action</th>
-
                             </thead>
-
-
                             <tbody>
-
                                 @foreach($allData as $key => $item)
                                 <tr>
                                     <td> {{ $key+1}} </td>
@@ -60,24 +51,16 @@
                                         <a href="{{ route('customer.invoice.details.pdf',$item->invoice_id) }}"
                                             target="_blank" class="btn btn-danger sm" title="Customer Invoice Details">
                                             <i class="fa fa-eye"></i> </a>
-
                                     </td>
-
                                 </tr>
                                 @endforeach
-
                             </tbody>
                         </table>
-
                     </div>
                 </div>
             </div> <!-- end col -->
         </div> <!-- end row -->
-
-
-
     </div> <!-- container-fluid -->
 </div>
-
 
 @endsection

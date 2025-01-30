@@ -16,7 +16,6 @@
                             <li class="breadcrumb-item active">Customer Credit Report</li>
                         </ol>
                     </div>
-
                 </div>
             </div>
         </div>
@@ -26,11 +25,9 @@
             <div class="col-12">
                 <div class="card">
                     <div class="card-body">
-
                         <div class="row">
                             <div class="col-12">
                                 <div class="invoice-title">
-
                                     <h3>
                                         <img src="{{ asset('backend/assets/images/logo-sm.png') }}" alt="logo"
                                             height="24" /> Easy Shopping Mall
@@ -129,7 +126,6 @@
                 </div>
             </div> <!-- end col -->
         </div> <!-- end row -->
-
     </div> <!-- container-fluid -->
 </div>
 

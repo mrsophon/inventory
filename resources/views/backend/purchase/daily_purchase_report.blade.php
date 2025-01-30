@@ -4,7 +4,6 @@
 
 <div class="page-content">
     <div class="container-fluid">
-
         <div class="row">
             <div class="col-12">
                 <div class="card">
@@ -14,9 +13,6 @@
 
                         <form method="GET" action="{{ route('daily.purchase.pdf') }}" target="_blank" id="myForm">
                             <div class="row">
-
-
-
                                 <div class="col-md-4">
                                     <div class="md-3 form-group">
                                         <label for="example-text-input" class="form-label">Start Date</label>
@@ -24,7 +20,6 @@
                                             id="start_date" placeholder="YY-MM-DD">
                                     </div>
                                 </div>
-
 
                                 <div class="col-md-4">
                                     <div class="md-3 form-group">
@@ -41,26 +36,14 @@
                                         <button type="submit" class="btn btn-info">Search</button>
                                     </div>
                                 </div>
-
-
-
                             </div> <!-- // end row  -->
-
                         </form>
-
                     </div> <!-- End card-body -->
-
-
-
                 </div>
             </div> <!-- end col -->
         </div>
-
-
-
     </div>
 </div>
-
 
 <script type="text/javascript">
 $(document).ready(function() {
@@ -72,7 +55,6 @@ $(document).ready(function() {
             end_date: {
                 required: true,
             },
-
         },
         messages: {
             start_date: {
@@ -81,7 +63,6 @@ $(document).ready(function() {
             end_date: {
                 required: 'Please Select End Date',
             },
-
         },
         errorElement: 'span',
         errorPlacement: function(error, element) {
@@ -97,7 +78,5 @@ $(document).ready(function() {
     });
 });
 </script>
-
-
 
 @endsection

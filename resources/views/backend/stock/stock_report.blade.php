@@ -1,7 +1,6 @@
 @extends('admin.admin_master')
 @section('admin')
 
-
 <div class="page-content">
     <div class="container-fluid">
 
@@ -10,9 +9,6 @@
             <div class="col-12">
                 <div class="page-title-box d-sm-flex align-items-center justify-content-between">
                     <h4 class="mb-sm-0">Stock Report All</h4>
-
-
-
                 </div>
             </div>
         </div>
@@ -29,7 +25,6 @@
 
                         <h4 class="card-title">Stock Report </h4>
 
-
                         <table id="datatable" class="table table-bordered dt-responsive nowrap"
                             style="border-collapse: collapse; border-spacing: 0; width: 100%;">
                             <thead>
@@ -42,12 +37,9 @@
                                     <th>In Qty</th>
                                     <th>Out Qty </th>
                                     <th>Stock </th>
-
+                                </tr>
                             </thead>
-
-
                             <tbody>
-
                                 @foreach($allData as $key => $item)
                                 @php
                                 $buying_total =
@@ -66,23 +58,15 @@
                                     <td> <span class="btn btn-success"> {{ $buying_total  }}</span> </td>
                                     <td> <span class="btn btn-info"> {{ $selling_total  }}</span> </td>
                                     <td> <span class="btn btn-danger"> {{ $item->quantity }}</span> </td>
-
-
                                 </tr>
                                 @endforeach
-
                             </tbody>
                         </table>
-
                     </div>
                 </div>
             </div> <!-- end col -->
         </div> <!-- end row -->
-
-
-
     </div> <!-- container-fluid -->
 </div>
-
 
 @endsection

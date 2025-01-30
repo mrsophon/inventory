@@ -8,9 +8,7 @@
         <div class="row">
             <div class="col-12">
                 <div class="page-title-box d-sm-flex align-items-center justify-content-between">
-
                     <h4 class="mb-sm-0">Vat All</h4>
-
                 </div>
             </div>
         </div>
@@ -37,7 +35,6 @@
                                     <th width="20%">Action</th>
                                 </tr>
                             </thead>
-
                             <tbody>
                                 @foreach($vats as $key => $item)
                                 <tr>
@@ -54,7 +51,6 @@
                                 @endforeach
                             </tbody>
                         </table>
-
                     </div>
                 </div>
             </div> <!-- end col -->

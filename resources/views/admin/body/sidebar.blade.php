@@ -18,7 +18,6 @@
                     </a>
                 </li>
 
-
                 <li class="menu-title">Manage</li>
 
                 <li>
@@ -28,10 +27,8 @@
                     </a>
                     <ul class="sub-menu" aria-expanded="false">
                         <li><a href="{{ route('supplier.all') }}">All Supplier</a></li>
-
                     </ul>
                 </li>
-
 
                 <li>
                     <a href="javascript: void(0);" class="has-arrow waves-effect">
@@ -41,12 +38,10 @@
                     <ul class="sub-menu" aria-expanded="false">
                         <li><a href="{{ route('customer.all') }}">All Customers</a></li>
                         <li><a href="{{ route('credit.customer') }}">Credit Customers</a></li>
-
                         <li><a href="{{ route('paid.customer') }}">Paid Customers</a></li>
                         <li><a href="{{ route('customer.wise.report') }}">Customer Wise Report</a></li>
                     </ul>
                 </li>
-
 
                 <li>
                     <a href="javascript: void(0);" class="has-arrow waves-effect">
@@ -55,10 +50,8 @@
                     </a>
                     <ul class="sub-menu" aria-expanded="false">
                         <li><a href="{{ route('product.all') }}">All Product</a></li>
-
                     </ul>
                 </li>
-
 
                 <li>
                     <a href="javascript: void(0);" class="has-arrow waves-effect">
@@ -72,7 +65,6 @@
                     </ul>
                 </li>
 
-
                 <li>
                     <a href="javascript: void(0);" class="has-arrow waves-effect">
                         <i class="ri-compass-2-fill"></i>
@@ -85,7 +77,6 @@
                         <li><a href="{{ route('daily.invoice.report') }}">Daily Invoice Report</a></li>
                     </ul>
                 </li>
-
 
                 <li class="menu-title">Stock</li>
 
@@ -115,7 +106,6 @@
                     </ul>
                 </li>
 
-
                 <li class="menu-title">Setting</li>
 
                 <li>
@@ -135,10 +125,8 @@
                         <li><a href="#">Running Number</a></li>
                         <li><a href="{{ route('unit.all') }}">Unit</a></li>
                         <li><a href="{{ route('vat.all') }}">Vat</a></li>
-
                     </ul>
                 </li>
-
 
                 <li>
                     <a href="javascript: void(0);" class="has-arrow waves-effect">
@@ -149,8 +137,6 @@
                         <li><a href="{{ route('employee.all') }}">All Employees</a></li>
                     </ul>
                 </li>
-
-
             </ul>
         </div>
         <!-- Sidebar -->

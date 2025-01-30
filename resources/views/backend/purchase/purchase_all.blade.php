@@ -1,7 +1,6 @@
 @extends('admin.admin_master')
 @section('admin')
 
-
 <div class="page-content">
     <div class="container-fluid">
 
@@ -10,9 +9,6 @@
             <div class="col-12">
                 <div class="page-title-box d-sm-flex align-items-center justify-content-between">
                     <h4 class="mb-sm-0">Purchase All</h4>
-
-
-
                 </div>
             </div>
         </div>
@@ -30,7 +26,6 @@
 
                         <h4 class="card-title">Purchase All Data </h4>
 
-
                         <table id="datatable" class="table table-bordered dt-responsive nowrap"
                             style="border-collapse: collapse; border-spacing: 0; width: 100%;">
                             <thead>
@@ -44,12 +39,9 @@
                                     <th>Product Name</th>
                                     <th>Status</th>
                                     <th>Action</th>
-
+                                </tr>
                             </thead>
-
-
                             <tbody>
-
                                 @foreach($allData as $key => $item)
                                 <tr>
                                     <td> {{ $key+1}} </td>
@@ -59,7 +51,6 @@
                                     <td> {{ $item['category']['name'] }} </td>
                                     <td> {{ $item->buying_qty }} </td>
                                     <td> {{ $item['product']['name'] }} </td>
-
                                     <td>
                                         @if($item->status == '0')
                                         <span class="btn btn-warning">Pending</span>
@@ -67,29 +58,21 @@
                                         <span class="btn btn-success">Approved</span>
                                         @endif
                                     </td>
-
                                     <td>
                                         @if($item->status == '0')
                                         <a href="{{ route('purchase.delete',$item->id) }}" class="btn btn-danger sm"
                                             title="Delete Data" id="delete"> <i class="fas fa-trash-alt"></i> </a>
                                         @endif
                                     </td>
-
                                 </tr>
                                 @endforeach
-
                             </tbody>
                         </table>
-
                     </div>
                 </div>
             </div> <!-- end col -->
         </div> <!-- end row -->
-
-
-
     </div> <!-- container-fluid -->
 </div>
-
 
 @endsection

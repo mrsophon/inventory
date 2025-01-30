@@ -10,9 +10,6 @@
             <div class="col-12">
                 <div class="page-title-box d-sm-flex align-items-center justify-content-between">
                     <h4 class="mb-sm-0">Supplier and Product Wise Report </h4>
-
-
-
                 </div>
             </div>
         </div>
@@ -22,27 +19,20 @@
             <div class="col-12">
                 <div class="card">
                     <div class="card-body">
-
-
                         <div class="row">
                             <div class="col-md-12 text-center">
                                 <strong> Supplier Wise Report </strong>
                                 <input type="radio" name="supplier_product_wise" value="supplier_wise"
                                     class="search_value"> &nbsp;&nbsp;
-
-
                                 <strong> Product Wise Report </strong>
                                 <input type="radio" name="supplier_product_wise" value="product_wise"
                                     class="search_value">
-
-
                             </div>
                         </div> <!-- // end row  -->
 
                         <!--  /// Supplier Wise  -->
                         <div class="show_supplier" style="display:none">
                             <form method="GET" action="{{ route('supplier.wise.pdf') }}" id="myForm" target="_blank">
-
                                 <div class="row">
                                     <div class="col-sm-8 form-group">
                                         <label>Supplier Name </label>
@@ -57,20 +47,15 @@
                                     <div class="col-sm-4" style="padding-top: 28px;">
                                         <button type="submit" class="btn btn-primary">Search</button>
                                     </div>
-
                                 </div>
-
                             </form>
-
                         </div>
                         <!--  /// End Supplier Wise  -->
 
                         <!--  /// Product Wise  -->
                         <div class="show_product" style="display:none; ">
                             <form method="GET" action="{{ route('product.wise.pdf') }}" id="myForm" target="_blank">
-
                                 <div class="row">
-
                                     <div class="col-md-4">
                                         <div class="md-3">
                                             <label for="example-text-input" class="form-label">Category Name </label>
@@ -84,14 +69,12 @@
                                         </div>
                                     </div>
 
-
                                     <div class="col-md-4">
                                         <div class="md-3">
                                             <label for="example-text-input" class="form-label">Product Name </label>
                                             <select name="product_id" id="product_id" class="form-select select2"
                                                 aria-label="Default select example">
                                                 <option selected="">Open this select menu</option>
-
                                             </select>
                                         </div>
                                     </div>
@@ -99,26 +82,14 @@
                                     <div class="col-sm-4" style="padding-top: 28px;">
                                         <button type="submit" class="btn btn-primary">Search</button>
                                     </div>
-
                                 </div>
-
                             </form>
-
                         </div>
                         <!--  /// End Product Wise  -->
-
-
-
-
-
-
                     </div>
                 </div>
             </div> <!-- end col -->
         </div> <!-- end row -->
-
-
-
     </div> <!-- container-fluid -->
 </div>
 
@@ -145,7 +116,6 @@ $(function() {
 });
 </script>
 
-
 <script type="text/javascript">
 $(document).on('change', '.search_value', function() {
     var search_value = $(this).val();
@@ -156,7 +126,6 @@ $(document).on('change', '.search_value', function() {
     }
 });
 </script>
-
 
 <script type="text/javascript">
 $(document).on('change', '.search_value', function() {
@@ -169,8 +138,6 @@ $(document).on('change', '.search_value', function() {
 });
 </script>
 
-
-
 <script type="text/javascript">
 $(document).ready(function() {
     $('#myForm').validate({
@@ -178,13 +145,11 @@ $(document).ready(function() {
             supplier_id: {
                 required: true,
             },
-
         },
         messages: {
             supplier_id: {
                 required: 'Please Select Supplier ',
             },
-
         },
         errorElement: 'span',
         errorPlacement: function(error, element) {
@@ -200,7 +165,5 @@ $(document).ready(function() {
     });
 });
 </script>
-
-
 
 @endsection

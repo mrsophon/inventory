@@ -15,7 +15,6 @@
                             <li class="breadcrumb-item active">Customer Payment Report</li>
                         </ol>
                     </div>
-
                 </div>
             </div>
         </div>
@@ -25,7 +24,6 @@
             <div class="col-12">
                 <div class="card">
                     <div class="card-body">
-
                         <div class="row">
                             <div class="col-12">
                                 <div class="invoice-title">
@@ -113,7 +111,6 @@
 
                                                     @php
                                                     $total_sum = '0';
-
                                                     $invoice_details = App\Models\InvoiceDetail::where(
                                                     'invoice_id',
                                                     $payment->invoice_id,
@@ -239,7 +236,7 @@
                 </div>
             </div> <!-- end col -->
         </div> <!-- end row -->
-
     </div> <!-- container-fluid -->
 </div>
+
 @endsection

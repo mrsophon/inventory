@@ -1,6 +1,5 @@
 @extends('admin.admin_master')
 @section('admin')
-
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
 <div class="page-content">
@@ -77,12 +76,10 @@
                             </form>
                         </div>
                         <!--  /// End show_paid  -->
-
                     </div>
                 </div>
             </div> <!-- end col -->
         </div> <!-- end row -->
-
     </div> <!-- container-fluid -->
 </div>
 
