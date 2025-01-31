@@ -26,7 +26,7 @@
                                 <label class="col-sm-2 col-form-label">Supplier Name </label>
                                 <div class="col-sm-10">
                                     <select name="supplier_id" class="form-select" aria-label="Default select example">
-                                        <option selected="">Open this select menu</option>
+                                        <option selected="">Please Select...</option>
                                         @foreach($supplier as $supp)
                                         <option value="{{ $supp->id }}">{{ $supp->name }}</option>
                                         @endforeach
@@ -39,7 +39,7 @@
                                 <label class="col-sm-2 col-form-label">Unit Name </label>
                                 <div class="col-sm-10">
                                     <select name="unit_id" class="form-select" aria-label="Default select example">
-                                        <option selected="">Open this select menu</option>
+                                        <option selected="">Please Select...</option>
                                         @foreach($unit as $uni)
                                         <option value="{{ $uni->id }}">{{ $uni->name }}</option>
                                         @endforeach
@@ -52,7 +52,7 @@
                                 <label class="col-sm-2 col-form-label">Category Name </label>
                                 <div class="col-sm-10">
                                     <select name="category_id" class="form-select" aria-label="Default select example">
-                                        <option selected="">Open this select menu</option>
+                                        <option selected="">Please Select...</option>
                                         @foreach($category as $cat)
                                         <option value="{{ $cat->id }}">{{ $cat->name }}</option>
                                         @endforeach

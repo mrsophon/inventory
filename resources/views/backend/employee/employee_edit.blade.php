@@ -29,7 +29,7 @@
                                 <label class="col-sm-2 col-form-label">Employee Type </label>
                                 <div class="col-sm-10">
                                     <select name="emptype_id" class="form-select" aria-label="Default select example">
-                                        <option selected="">Open this select menu</option>
+                                        <option selected="">Please Select...</option>
                                         @foreach($emptype as $empt)
                                         <option value="{{ $empt->id }}"
                                             {{ $empt->id == $employee->emptype_id ? 'selected' : '' }}>{{ $empt->name }}

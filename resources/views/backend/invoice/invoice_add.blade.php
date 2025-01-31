@@ -34,7 +34,7 @@
                                     <label for="example-text-input" class="form-label">Category Name </label>
                                     <select name="category_id" id="category_id" class="form-select select2"
                                         aria-label="Default select example">
-                                        <option selected="">Open this select menu</option>
+                                        <option selected="">Please Select...</option>
                                         @foreach($category as $cat)
                                         <option value="{{ $cat->id }}">{{ $cat->name }}</option>
                                         @endforeach
@@ -47,7 +47,7 @@
                                     <label for="example-text-input" class="form-label">Product Name </label>
                                     <select name="product_id" id="product_id" class="form-select select2"
                                         aria-label="Default select example">
-                                        <option selected="">Open this select menu</option>
+                                        <option selected="">Please Select...</option>
                                     </select>
                                 </div>
                             </div>

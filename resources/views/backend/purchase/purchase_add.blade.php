@@ -47,7 +47,7 @@
                                     <label for="example-text-input" class="form-label">Supplier Name </label>
                                     <select id="supplier_id" name="supplier_id" class="form-select select2"
                                         aria-label="Default select example">
-                                        <option selected="">Open this select menu</option>
+                                        <option selected="">Please Select...</option>
                                         @foreach($supplier as $supp)
                                         <option value="{{ $supp->id }}">{{ $supp->name }}</option>
                                         @endforeach
@@ -60,7 +60,7 @@
                                     <label for="example-text-input" class="form-label">Category Name </label>
                                     <select name="category_id" id="category_id" class="form-select select2"
                                         aria-label="Default select example">
-                                        <option selected="">Open this select menu</option>
+                                        <option selected="">Please Select...</option>
                                     </select>
                                 </div>
                             </div>
@@ -70,7 +70,7 @@
                                     <label for="example-text-input" class="form-label">Product Name </label>
                                     <select name="product_id" id="product_id" class="form-select select2"
                                         aria-label="Default select example">
-                                        <option selected="">Open this select menu</option>
+                                        <option selected="">Please Select...</option>
                                     </select>
                                 </div>
                             </div>
