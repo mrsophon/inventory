@@ -14,11 +14,23 @@ return new class extends Migration
     public function up()
     {
         Schema::table('products', function (Blueprint $table) {
-            //
-            $table->text('description')->unsigned()->nullable()->after('code');
-	        // $table->integer('quantity')->default(1)->nullable();
-	        // $table->bigInteger('address_id')->unsigned()->nullable()->after('tel_number');
-	        // $table->foreign('address_id')->references('id')->on('addresses')->onDelete('SET NULL');
+            $table->text('item_desc')->nullable()->after('quantity');
+            $table->string('dimension')->nullable()->after('item_desc');
+            $table->text('stn_desc')->nullable()->after('dimension');
+            $table->text('item_set')->nullable()->after('stn_desc');
+            $table->integer('brand_id')->nullable()->after('item_set');
+            $table->integer('type_id')->nullable()->after('brand_id');
+            $table->double('cost')->default('0')->after('type_id');
+            $table->double('price')->default('0')->after('cost');
+            $table->double('price_baht')->default('0')->after('price');
+            $table->string('price_range')->nullable()->after('price_baht');
+            $table->integer('vattype_id')->nullable()->after('price_range');
+            $table->double('metal_wgt')->default('0')->after('vattype_id');
+            $table->double('gold_wgt')->default('0')->after('metal_wgt');
+            $table->double('net_wgt')->default('0')->after('gold_wgt');
+            $table->date('date')->nullable()->after('net_wgt');
+            $table->text('note')->nullable()->after('date');
+            $table->string('product_image')->nullable()->after('note');
         });
     }
 
