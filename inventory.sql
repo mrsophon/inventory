@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 27, 2025 at 12:11 PM
+-- Generation Time: Jul 06, 2025 at 07:35 PM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -293,7 +293,7 @@ CREATE TABLE IF NOT EXISTS `migrations` (
   `migration` varchar(255) NOT NULL,
   `batch` int(11) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=25 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci ROW_FORMAT=DYNAMIC;
+) ENGINE=InnoDB AUTO_INCREMENT=26 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci ROW_FORMAT=DYNAMIC;
 
 --
 -- Dumping data for table `migrations`
@@ -323,7 +323,8 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 (21, '2025_01_16_145737_create_paytypes_table', 8),
 (22, '2025_01_21_174419_create_emptypes_table', 9),
 (23, '2025_01_23_174049_create_vats_table', 10),
-(24, '2025_01_24_175426_create_employees_table', 11);
+(24, '2025_01_24_175426_create_employees_table', 11),
+(25, '2025_03_31_165842_add_type_id_to_products_table', 12);
 
 -- --------------------------------------------------------
 
@@ -446,6 +447,23 @@ CREATE TABLE IF NOT EXISTS `products` (
   `category_id` int(11) NOT NULL,
   `name` varchar(255) DEFAULT NULL,
   `quantity` double NOT NULL DEFAULT 0,
+  `item_desc` text DEFAULT NULL,
+  `dimension` varchar(255) DEFAULT NULL,
+  `stn_desc` text DEFAULT NULL,
+  `item_set` text DEFAULT NULL,
+  `brand_id` int(11) DEFAULT NULL,
+  `type_id` int(11) DEFAULT NULL,
+  `cost` double NOT NULL DEFAULT 0,
+  `price` double NOT NULL DEFAULT 0,
+  `price_baht` double NOT NULL DEFAULT 0,
+  `price_range` varchar(255) DEFAULT NULL,
+  `vattype_id` int(11) DEFAULT NULL,
+  `metal_wgt` double NOT NULL DEFAULT 0,
+  `gold_wgt` double NOT NULL DEFAULT 0,
+  `net_wgt` double NOT NULL DEFAULT 0,
+  `date` date DEFAULT NULL,
+  `note` text DEFAULT NULL,
+  `product_image` varchar(255) DEFAULT NULL,
   `status` tinyint(4) NOT NULL DEFAULT 1,
   `created_by` int(11) DEFAULT NULL,
   `updated_by` int(11) DEFAULT NULL,
@@ -458,14 +476,14 @@ CREATE TABLE IF NOT EXISTS `products` (
 -- Dumping data for table `products`
 --
 
-INSERT INTO `products` (`id`, `supplier_id`, `unit_id`, `category_id`, `name`, `quantity`, `status`, `created_by`, `updated_by`, `created_at`, `updated_at`) VALUES
-(1, 1, 1, 4, 'Bosundora Steel', 0, 1, 2, 2, '2022-11-02 07:35:58', '2022-11-02 07:37:10'),
-(2, 2, 1, 4, 'KSRM Steel', 0, 1, 2, NULL, '2022-11-02 07:36:58', NULL),
-(3, 1, 2, 1, 'Bosundora Cement', 0, 1, 2, NULL, '2022-11-02 07:37:46', NULL),
-(4, 4, 2, 1, 'Shah Cement', 0, 1, 2, NULL, '2022-11-02 07:40:45', NULL),
-(5, 5, 2, 1, 'Madina Cement', 0, 1, 2, NULL, '2022-11-02 07:41:16', NULL),
-(6, 3, 1, 3, 'Walton Mobile w52', 0, 1, 2, NULL, '2022-11-02 07:42:07', NULL),
-(7, 3, 1, 3, 'Walton Mobile w55', 0, 1, 2, 2, '2022-11-02 07:42:50', '2022-11-02 07:43:06');
+INSERT INTO `products` (`id`, `supplier_id`, `unit_id`, `category_id`, `name`, `quantity`, `item_desc`, `dimension`, `stn_desc`, `item_set`, `brand_id`, `type_id`, `cost`, `price`, `price_baht`, `price_range`, `vattype_id`, `metal_wgt`, `gold_wgt`, `net_wgt`, `date`, `note`, `product_image`, `status`, `created_by`, `updated_by`, `created_at`, `updated_at`) VALUES
+(1, 1, 1, 4, 'Bosundora Steel', 0, NULL, NULL, NULL, NULL, NULL, NULL, 0, 0, 0, NULL, NULL, 0, 0, 0, NULL, NULL, NULL, 1, 2, 2, '2022-11-02 07:35:58', '2022-11-02 07:37:10'),
+(2, 2, 1, 4, 'KSRM Steel', 0, NULL, NULL, NULL, NULL, NULL, NULL, 0, 0, 0, NULL, NULL, 0, 0, 0, NULL, NULL, NULL, 1, 2, NULL, '2022-11-02 07:36:58', NULL),
+(3, 1, 2, 1, 'Bosundora Cement', 0, NULL, NULL, NULL, NULL, NULL, NULL, 0, 0, 0, NULL, NULL, 0, 0, 0, NULL, NULL, NULL, 1, 2, NULL, '2022-11-02 07:37:46', NULL),
+(4, 4, 2, 1, 'Shah Cement', 0, NULL, NULL, NULL, NULL, NULL, NULL, 0, 0, 0, NULL, NULL, 0, 0, 0, NULL, NULL, NULL, 1, 2, NULL, '2022-11-02 07:40:45', NULL),
+(5, 5, 2, 1, 'Madina Cement', 0, NULL, NULL, NULL, NULL, NULL, NULL, 0, 0, 0, NULL, NULL, 0, 0, 0, NULL, NULL, NULL, 1, 2, NULL, '2022-11-02 07:41:16', NULL),
+(6, 3, 1, 3, 'Walton Mobile w52', 0, NULL, NULL, NULL, NULL, NULL, NULL, 0, 0, 0, NULL, NULL, 0, 0, 0, NULL, NULL, NULL, 1, 2, NULL, '2022-11-02 07:42:07', NULL),
+(7, 3, 1, 3, 'Walton Mobile w55', 0, NULL, NULL, NULL, NULL, NULL, NULL, 0, 0, 0, NULL, NULL, 0, 0, 0, NULL, NULL, NULL, 1, 2, 2, '2022-11-02 07:42:50', '2022-11-02 07:43:06');
 
 -- --------------------------------------------------------
 
