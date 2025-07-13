@@ -23,6 +23,14 @@
                             <!-- end row -->
 
                             <div class="row mb-3">
+                                <label for="example-text-input" class="col-sm-2 col-form-label">Description </label>
+                                <div class="form-group col-sm-10">
+                                    <textarea name="description" class="form-control" id="description"></textarea>
+                                </div>
+                            </div>
+                            <!-- end row -->
+
+                            <div class="row mb-3">
                                 <label class="col-sm-2 col-form-label">Supplier Name </label>
                                 <div class="col-sm-10">
                                     <select name="supplier_id" class="form-select" aria-label="Default select example">
@@ -57,6 +65,14 @@
                                         <option value="{{ $cat->id }}">{{ $cat->name }}</option>
                                         @endforeach
                                     </select>
+                                </div>
+                            </div>
+                            <!-- end row -->
+
+                            <div class="row mb-3">
+                                <label class="col-sm-2 col-form-label">Quantity </label>
+                                <div class="form-group col-sm-10">
+                                    <input name="quantity" class="form-control" type="text">
                                 </div>
                             </div>
                             <!-- end row -->
