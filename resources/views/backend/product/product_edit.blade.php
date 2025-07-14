@@ -69,6 +69,14 @@
                             </div>
                             <!-- end row -->
 
+                            <div class="row mb-3">
+                                <label class="col-sm-2 col-form-label">Quantity </label>
+                                <div class="form-group col-sm-3">
+                                    <input name="quantity" value='{{ $product->quantity }}' class="form-control" type="number" step="0.50" placeholder="0.00">
+                                </div>
+                            </div>
+                            <!-- end row -->
+
                             <input type="submit" class="btn btn-info waves-effect waves-light" value="Update Product">
                             <a href="{{ url()->previous() }}" class="btn btn-danger waves-effect waves-light">Cancel</a>
                         </form>

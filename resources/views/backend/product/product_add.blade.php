@@ -71,8 +71,9 @@
 
                             <div class="row mb-3">
                                 <label class="col-sm-2 col-form-label">Quantity </label>
-                                <div class="form-group col-sm-10">
-                                    <input name="quantity" class="form-control" type="text">
+                                <div class="form-group col-sm-3">
+                                    <input name="quantity" class="form-control" type="number" step="0.50"
+                                        placeholder="0.00">
                                 </div>
                             </div>
                             <!-- end row -->
