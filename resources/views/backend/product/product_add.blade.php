@@ -15,25 +15,25 @@
                             @csrf
 
                             <div class="row mb-3">
-                                <label for="example-text-input" class="col-sm-2 col-form-label">Product Name </label>
+                                <label for="name" class="col-sm-2 col-form-label">Product Name </label>
                                 <div class="form-group col-sm-10">
-                                    <input name="name" class="form-control" type="text">
+                                    <input id="name" name="name" class="form-control" type="text">
                                 </div>
                             </div>
                             <!-- end row -->
 
                             <div class="row mb-3">
-                                <label for="example-text-input" class="col-sm-2 col-form-label">Description </label>
+                                <label for="description" class="col-sm-2 col-form-label">Description </label>
                                 <div class="form-group col-sm-10">
-                                    <textarea name="description" class="form-control" id="description"></textarea>
+                                    <textarea id="description" name="description" class="form-control"></textarea>
                                 </div>
                             </div>
                             <!-- end row -->
 
                             <div class="row mb-3">
-                                <label class="col-sm-2 col-form-label">Supplier Name </label>
+                                <label for="supplier_id" class="col-sm-2 col-form-label">Supplier </label>
                                 <div class="col-sm-10">
-                                    <select name="supplier_id" class="form-select" aria-label="Default select example">
+                                    <select id="supplier_id" name="supplier_id" class="form-select" aria-label="Default select example">
                                         <option selected="">Please Select...</option>
                                         @foreach($supplier as $supp)
                                         <option value="{{ $supp->id }}">{{ $supp->name }}</option>
@@ -44,9 +44,9 @@
                             <!-- end row -->
 
                             <div class="row mb-3">
-                                <label class="col-sm-2 col-form-label">Unit Name </label>
+                                <label for="unit_id" class="col-sm-2 col-form-label">Unit </label>
                                 <div class="col-sm-10">
-                                    <select name="unit_id" class="form-select" aria-label="Default select example">
+                                    <select id="unit_id" name="unit_id" class="form-select" aria-label="Default select example">
                                         <option selected="">Please Select...</option>
                                         @foreach($unit as $uni)
                                         <option value="{{ $uni->id }}">{{ $uni->name }}</option>
@@ -57,9 +57,9 @@
                             <!-- end row -->
 
                             <div class="row mb-3">
-                                <label class="col-sm-2 col-form-label">Category Name </label>
+                                <label for="category_id" class="col-sm-2 col-form-label">Category </label>
                                 <div class="col-sm-10">
-                                    <select name="category_id" class="form-select" aria-label="Default select example">
+                                    <select id="category_id" name="category_id" class="form-select" aria-label="Default select example">
                                         <option selected="">Please Select...</option>
                                         @foreach($category as $cat)
                                         <option value="{{ $cat->id }}">{{ $cat->name }}</option>
@@ -70,10 +70,9 @@
                             <!-- end row -->
 
                             <div class="row mb-3">
-                                <label class="col-sm-2 col-form-label">Quantity </label>
+                                <label for="quantity" class="col-sm-2 col-form-label">Quantity </label>
                                 <div class="form-group col-sm-3">
-                                    <input name="quantity" class="form-control" type="number" step="0.50"
-                                        placeholder="0.00">
+                                    <input id="quantity" name="quantity" type="text" class="form-control" placeholder="0.0000">
                                 </div>
                             </div>
                             <!-- end row -->
@@ -132,6 +131,19 @@ $(document).ready(function() {
         },
     });
 });
+</script>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        new AutoNumeric('#quantity', {
+            digitGroupSeparator: ',',
+            decimalCharacter: '.',
+            decimalPlaces: 4,
+            minimumValue: '0',
+            maximumValue: '9999999999.9999',
+            unformatOnSubmit: true
+        });
+    });
 </script>
 
 @endsection
