@@ -125,6 +125,7 @@
                         <li><a href="#">Running Number</a></li>
                         <li><a href="{{ route('unit.all') }}">Unit</a></li>
                         <li><a href="{{ route('vat.all') }}">Vat</a></li>
+                        <li><a href="{{ route('vattype.all') }}">Vat Type</a></li>
                     </ul>
                 </li>
 

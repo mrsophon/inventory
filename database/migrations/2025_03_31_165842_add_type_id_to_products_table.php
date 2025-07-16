@@ -17,7 +17,7 @@ return new class extends Migration
             $table->text('item_desc')->nullable()->after('quantity');
             $table->string('dimension')->nullable()->after('item_desc');
             $table->text('stn_desc')->nullable()->after('dimension');
-            $table->text('item_set')->nullable()->after('stn_desc');
+            $table->string('item_set')->nullable()->after('stn_desc');
             $table->integer('brand_id')->nullable()->after('item_set');
             $table->integer('type_id')->nullable()->after('brand_id');
             $table->double('cost')->default('0')->after('type_id');

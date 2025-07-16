@@ -19,9 +19,11 @@
                 <div class="card">
                     <div class="card-body">
 
-                        <a href="{{ route('unit.add') }}" class="btn btn-dark btn-rounded waves-effect waves-light"
-                            style="float:right;"><i class="fas fa-plus-circle"><span
-                                    style="font-family:tahoma; font-weight: normal;"> Add Unit</span></i></a> <br> <br>
+                        <a href="{{ route('unit.add') }}" class="btn btn-dark btn-rounded waves-effect waves-light" style="float:right;">
+                            <i class="fas fa-plus-circle">
+                                <span style="font-family:tahoma; font-weight: normal;"> Add Unit</span>
+                            </i>
+                        </a> <br> <br>
 
                         <h4 class="card-title">Unit All Data</h4>
 
@@ -29,7 +31,7 @@
                             style="border-collapse: collapse; border-spacing: 0; width: 100%;">
                             <thead>
                                 <tr>
-                                    <th width="5%">Sl</th>
+                                    <th width="5%">#</th>
                                     <th>Name</th>
                                     <th width="20%">Action</th>
                                 </tr>

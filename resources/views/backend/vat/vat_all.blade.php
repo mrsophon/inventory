@@ -19,9 +19,11 @@
                 <div class="card">
                     <div class="card-body">
 
-                        <a href="{{ route('vat.add') }}" class="btn btn-dark btn-rounded waves-effect waves-light"
-                            style="float:right;"><i class="fas fa-plus-circle"><span
-                                    style="font-family:tahoma; font-weight: normal;"> Add Vat</span></i></a> <br> <br>
+                        <a href="{{ route('vat.add') }}" class="btn btn-dark btn-rounded waves-effect waves-light" style="float:right;">
+                            <i class="fas fa-plus-circle">
+                                <span style="font-family:tahoma; font-weight: normal;"> Add Vat</span>
+                            </i>
+                        </a> <br> <br>
 
                         <h4 class="card-title">Vat All Data</h4>
 
@@ -29,9 +31,9 @@
                             style="border-collapse: collapse; border-spacing: 0; width: 100%;">
                             <thead>
                                 <tr>
-                                    <th width="5%">Sl</th>
+                                    <th width="5%">#</th>
                                     <th>Name</th>
-                                    <th>Rate</th>
+                                    <th>Rate (%)</th>
                                     <th width="20%">Action</th>
                                 </tr>
                             </thead>

@@ -23,7 +23,7 @@
                             </div>
 
                             <div class="row mb-3">
-                                <label for="example-text-input" class="col-sm-2 col-form-label">Vat Rate</label>
+                                <label for="example-text-input" class="col-sm-2 col-form-label">Vat Rate (%)</label>
                                 <div class="form-group col-sm-3">
                                     <input name="rate" value="{{ $vat->rate }}" class="form-control" type="number"
                                         step="0.01" placeholder="0.00">

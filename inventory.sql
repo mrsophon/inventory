@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 14, 2025 at 01:04 PM
+-- Generation Time: Jul 16, 2025 at 01:10 PM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -293,7 +293,7 @@ CREATE TABLE IF NOT EXISTS `migrations` (
   `migration` varchar(255) NOT NULL,
   `batch` int(11) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=26 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci ROW_FORMAT=DYNAMIC;
+) ENGINE=InnoDB AUTO_INCREMENT=27 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci ROW_FORMAT=DYNAMIC;
 
 --
 -- Dumping data for table `migrations`
@@ -324,7 +324,8 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 (22, '2025_01_21_174419_create_emptypes_table', 9),
 (23, '2025_01_23_174049_create_vats_table', 10),
 (24, '2025_01_24_175426_create_employees_table', 11),
-(25, '2025_03_31_165842_add_type_id_to_products_table', 12);
+(25, '2025_03_31_165842_add_type_id_to_products_table', 12),
+(26, '2025_07_16_143646_create_vattypes_table', 13);
 
 -- --------------------------------------------------------
 
@@ -450,7 +451,7 @@ CREATE TABLE IF NOT EXISTS `products` (
   `item_desc` text DEFAULT NULL,
   `dimension` varchar(255) DEFAULT NULL,
   `stn_desc` text DEFAULT NULL,
-  `item_set` text DEFAULT NULL,
+  `item_set` varchar(255) DEFAULT NULL,
   `brand_id` int(11) DEFAULT NULL,
   `type_id` int(11) DEFAULT NULL,
   `cost` double NOT NULL DEFAULT 0,
@@ -482,8 +483,8 @@ INSERT INTO `products` (`id`, `supplier_id`, `unit_id`, `category_id`, `name`, `
 (3, 1, 2, 1, 'Bosundora Cement', 0, NULL, NULL, NULL, NULL, NULL, NULL, 0, 0, 0, NULL, NULL, 0, 0, 0, NULL, NULL, NULL, 1, 2, NULL, '2022-11-02 07:37:46', NULL),
 (4, 4, 2, 1, 'Shah Cement', 0, NULL, NULL, NULL, NULL, NULL, NULL, 0, 0, 0, NULL, NULL, 0, 0, 0, NULL, NULL, NULL, 1, 2, NULL, '2022-11-02 07:40:45', NULL),
 (5, 5, 2, 1, 'Madina Cement', 0, NULL, NULL, NULL, NULL, NULL, NULL, 0, 0, 0, NULL, NULL, 0, 0, 0, NULL, NULL, NULL, 1, 2, NULL, '2022-11-02 07:41:16', NULL),
-(6, 3, 1, 3, 'Walton Mobile w52', 0, NULL, NULL, NULL, NULL, NULL, NULL, 0, 0, 0, NULL, NULL, 0, 0, 0, NULL, NULL, NULL, 1, 2, NULL, '2022-11-02 07:42:07', NULL),
-(7, 3, 1, 3, 'Walton Mobile w55', 1234.5, NULL, NULL, NULL, NULL, NULL, NULL, 0, 0, 0, NULL, NULL, 0, 0, 0, NULL, NULL, NULL, 1, 2, 2, '2022-11-02 07:42:50', '2022-11-02 07:43:06');
+(6, 3, 1, 3, 'Walton Mobile w52', 12.5, NULL, NULL, NULL, NULL, NULL, NULL, 0, 0, 0, NULL, NULL, 0, 0, 0, NULL, NULL, NULL, 1, 2, 2, '2022-11-02 07:42:07', '2025-07-15 09:50:56'),
+(7, 3, 1, 3, 'Walton Mobile w55', 1234567890.1234, '1. ITEM_DESC\r\n2. \r\n3.', 'dimension', 'stn_desc', 'item_set', NULL, NULL, 123, 456, 789, 'a-b', NULL, 111, 222, 333, '2025-07-15', 'note', NULL, 1, 2, 2, '2022-11-02 07:42:50', '2025-07-16 05:51:22');
 
 -- --------------------------------------------------------
 
@@ -661,6 +662,32 @@ INSERT INTO `vats` (`id`, `name`, `rate`, `status`, `created_by`, `updated_by`, 
 (1, 'Exclude', 7, 1, 1, 1, '2025-01-24 08:33:58', '2025-01-24 09:03:25'),
 (2, 'Include', 7, 1, 1, 1, '2025-01-24 09:09:19', '2025-01-24 09:25:00'),
 (3, 'No Vat', 0, 1, 1, 1, '2025-01-24 09:23:35', '2025-01-24 09:24:25');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `vattypes`
+--
+
+CREATE TABLE IF NOT EXISTS `vattypes` (
+  `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT,
+  `name` varchar(255) DEFAULT NULL,
+  `status` tinyint(4) NOT NULL DEFAULT 1,
+  `created_by` int(11) DEFAULT NULL,
+  `updated_by` int(11) DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `vattypes`
+--
+
+INSERT INTO `vattypes` (`id`, `name`, `status`, `created_by`, `updated_by`, `created_at`, `updated_at`) VALUES
+(1, '.Vat', 1, 2, 2, '2025-07-16 09:12:12', '2025-07-16 09:46:51'),
+(2, '.Vat 0%', 1, 2, 2, '2025-07-16 09:12:35', '2025-07-16 09:48:20'),
+(3, 'No Vat', 1, 2, NULL, '2025-07-16 09:12:48', NULL);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

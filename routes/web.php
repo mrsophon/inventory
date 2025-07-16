@@ -19,6 +19,7 @@ use App\Http\Controllers\Pos\LocationController;
 use App\Http\Controllers\Pos\PaytypeController;
 use App\Http\Controllers\Pos\EmptypeController;
 use App\Http\Controllers\Pos\VatController;
+use App\Http\Controllers\Pos\VattypeController;
 use App\Http\Controllers\Pos\EmployeeController;
 
 Route::get('/', function () {
@@ -179,6 +180,17 @@ Route::middleware('auth')->group(function() {
         Route::get('/vat/edit/{id}', 'VatEdit')->name('vat.edit');
         Route::post('/vat/update', 'VatUpdate')->name('vat.update');
         Route::get('/vat/delete/{id}', 'VatDelete')->name('vat.delete');
+    });
+
+
+    // Vat Type All Route
+    Route::controller(VattypeController::class)->group(function () {
+        Route::get('/vattype/all', 'VattypeAll')->name('vattype.all');
+        Route::get('/vattype/add', 'VattypeAdd')->name('vattype.add');
+        Route::post('/vattype/store', 'VattypeStore')->name('vattype.store');
+        Route::get('/vattype/edit/{id}', 'VattypeEdit')->name('vattype.edit');
+        Route::post('/vattype/update', 'VattypeUpdate')->name('vattype.update');
+        Route::get('/vattype/delete/{id}', 'VattypeDelete')->name('vattype.delete');
     });
 
 

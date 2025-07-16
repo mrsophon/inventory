@@ -9,26 +9,18 @@
                 <div class="card">
                     <div class="card-body">
 
-                        <h4 class="card-title">Add Vat</h4><br><br>
+                        <h4 class="card-title">Edit Vat Type</h4><br><br>
 
-                        <form method="post" action="{{ route('vat.store') }}" id="myForm">
+                        <form method="post" action="{{ route('vattype.update') }}" id="myForm">
                             @csrf
 
+                            <input type="hidden" name="id" value="{{ $vattype->id }}">
                             <div class="row mb-3">
-                                <label for="example-text-input" class="col-sm-2 col-form-label">Vat Name</label>
+                                <label for="example-text-input" class="col-sm-2 col-form-label">Vat Type Name</label>
                                 <div class="form-group col-sm-10">
-                                    <input name="name" class="form-control" type="text">
+                                    <input name="name" value="{{ $vattype->name }}" class="form-control" type="text">
                                 </div>
                             </div>
-
-                            <div class="row mb-3">
-                                <label for="example-text-input" class="col-sm-2 col-form-label">Vat Rate (%)</label>
-                                <div class="form-group col-sm-3">
-                                    <input name="rate" class="form-control" type="number" step="0.01"
-                                        placeholder="0.00">
-                                </div>
-                            </div>
-                            <!-- end row -->
 
                             <input type="submit" class="btn btn-primary waves-effect waves-light" value="  Save  ">
                             <a href="{{ url()->previous() }}" class="btn btn-danger waves-effect waves-light">Cancel</a>
@@ -47,16 +39,10 @@ $(document).ready(function() {
             name: {
                 required: true,
             },
-            rate: {
-                required: true,
-            },
         },
         messages: {
             name: {
                 required: 'Please Enter Name',
-            },
-            rate: {
-                required: 'Please Enter Rate',
             },
         },
         errorElement: 'span',

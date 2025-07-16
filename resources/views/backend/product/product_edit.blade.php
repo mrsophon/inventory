@@ -17,37 +17,53 @@
                             <input type="hidden" name="id" value="{{ $product->id }}">
 
                             <div class="row mb-3">
-                                <label for="name" class="col-sm-2 col-form-label">Product Name </label>
+                                <label for="name" class="col-sm-2 col-form-label">Product Name : </label>
                                 <div class="form-group col-sm-10">
-                                    <input id="name" name="name" value="{{ $product->name }}" class="form-control" type="text">
+                                    <input type="text" class="form-control" id="name" name="name" value="{{ old('name', $product->name) }}">
                                 </div>
                             </div>
                             <!-- end row -->
 
                             <div class="row mb-3">
-                                <label for="description" class="col-sm-2 col-form-label">Description </label>
+                                <label for="item_desc" class="col-sm-2 col-form-label">Description : </label>
                                 <div class="form-group col-sm-10">
-                                    <textarea id="description" name="description" value="{{ $product->item_desc }}" class="form-control"></textarea>
+                                    <textarea class="form-control" id="item_desc" name="item_desc" rows="3">{{ old('item_desc', $product->item_desc) }}</textarea>
                                 </div>
                             </div>
                             <!-- end row -->
 
                             <div class="row mb-3">
-                                <label for="description" class="col-sm-2 col-form-label">Description </label>
+                                <label for="dimension" class="col-sm-2 col-form-label">Dimension : </label>
                                 <div class="form-group col-sm-10">
-                                    <input id="description" name="description" value="{{ $product->item_desc }}" class="form-control" type="text">
+                                    <input type="text" class="form-control" id="dimension" name="dimension" value="{{ old('dimension', $product->dimension) }}">
                                 </div>
                             </div>
                             <!-- end row -->
 
                             <div class="row mb-3">
-                                <label for="supplier_id" class="col-sm-2 col-form-label">Supplier </label>
+                                <label for="item_set" class="col-sm-2 col-form-label">Product Set : </label>
+                                <div class="form-group col-sm-10">
+                                    <input type="text" class="form-control" id="item_set" name="item_set" value="{{ old('item_set', $product->item_set) }}">
+                                </div>
+                            </div>
+                            <!-- end row -->
+
+                            <div class="row mb-3">
+                                <label for="stn_desc" class="col-sm-2 col-form-label">Stone Description : </label>
+                                <div class="form-group col-sm-10">
+                                    <textarea class="form-control" id="stn_desc" name="stn_desc" rows="3">{{ old('stn_desc', $product->stn_desc) }}</textarea>
+                                </div>
+                            </div>
+                            <!-- end row -->
+
+                            <div class="row mb-3">
+                                <label for="supplier_id" class="col-sm-2 col-form-label">Supplier : </label>
                                 <div class="col-sm-10">
-                                    <select id="supplier_id" name="supplier_id" class="form-select" aria-label="Default select example">
+                                    <select class="form-select" id="supplier_id" name="supplier_id" aria-label="Select Supplier">
                                         <option selected="">Please Select...</option>
                                         @foreach($supplier as $supp)
                                         <option value="{{ $supp->id }}"
-                                            {{ $supp->id == $product->supplier_id ? 'selected' : '' }}>{{ $supp->name }}
+                                            {{ $supp->id == old('supplier_id', $product->supplier_id) ? 'selected' : '' }}>{{ $supp->name }}
                                         </option>
                                         @endforeach
                                     </select>
@@ -56,13 +72,13 @@
                             <!-- end row -->
 
                             <div class="row mb-3">
-                                <label for="unit_id" class="col-sm-2 col-form-label">Unit </label>
+                                <label for="unit_id" class="col-sm-2 col-form-label">Unit : </label>
                                 <div class="col-sm-10">
-                                    <select id="unit_id" name="unit_id" class="form-select" aria-label="Default select example">
+                                    <select class="form-select" id="unit_id" name="unit_id" aria-label="Select Unit">
                                         <option selected="">Please Select...</option>
                                         @foreach($unit as $uni)
                                         <option value="{{ $uni->id }}"
-                                            {{ $uni->id == $product->unit_id ? 'selected' : '' }}>{{ $uni->name }}
+                                            {{ $uni->id == old('unit_id', $product->unit_id) ? 'selected' : '' }}>{{ $uni->name }}
                                         </option>
                                         @endforeach
                                     </select>
@@ -71,13 +87,13 @@
                             <!-- end row -->
 
                             <div class="row mb-3">
-                                <label for="category_id" class="col-sm-2 col-form-label">Category </label>
+                                <label for="category_id" class="col-sm-2 col-form-label">Category : </label>
                                 <div class="col-sm-10">
-                                    <select id="category_id" name="category_id" class="form-select" aria-label="Default select example">
+                                    <select class="form-select" id="category_id" name="category_id" aria-label="Select Category">
                                         <option selected="">Please Select...</option>
                                         @foreach($category as $cat)
                                         <option value="{{ $cat->id }}"
-                                            {{ $cat->id == $product->category_id ? 'selected' : '' }}>{{ $cat->name }}
+                                            {{ $cat->id == old('category_id', $product->category_id) ? 'selected' : '' }}>{{ $cat->name }}
                                         </option>
                                         @endforeach
                                     </select>
@@ -86,14 +102,68 @@
                             <!-- end row -->
 
                             <div class="row mb-3">
-                                <label for="quantity" class="col-sm-2 col-form-label">Quantity </label>
-                                <div class="form-group col-sm-3">
-                                    <input id="quantity" name="quantity" type="text" class="form-control" value="{{ $product->quantity }}" placeholder="0.0000">
+                                <label for="brand_id" class="col-sm-2 col-form-label">Brand : </label>
+                                <div class="col-sm-10">
+                                    <select class="form-select" id="brand_id" name="brand_id" aria-label="Select Brand">
+                                        <option selected="">Please Select...</option>
+                                        @foreach($brand as $brn)
+                                        <option value="{{ $brn->id }}"
+                                            {{ $brn->id == old('brand_id', $product->brand_id) ? 'selected' : '' }}>{{ $brn->name }}
+                                        </option>
+                                        @endforeach
+                                    </select>
                                 </div>
                             </div>
                             <!-- end row -->
 
-                            <input type="submit" class="btn btn-info waves-effect waves-light" value="Update Product">
+                            <div class="row mb-3">
+                                <label for="type_id" class="col-sm-2 col-form-label">Type : </label>
+                                <div class="col-sm-10">
+                                    <select class="form-select" id="type_id" name="type_id" aria-label="Select Type">
+                                        <option selected="">Please Select...</option>
+                                        @foreach($type as $typ)
+                                        <option value="{{ $typ->id }}"
+                                            {{ $typ->id == old('type_id', $product->type_id) ? 'selected' : '' }}>{{ $typ->name }}
+                                        </option>
+                                        @endforeach
+                                    </select>
+                                </div>
+                            </div>
+                            <!-- end row -->
+
+                            <div class="row mb-3">
+                                <label for="cost" class="col-sm-2 col-form-label">Cost : </label>
+                                <div class="form-group col-sm-3">
+                                    <input type="text" class="form-control" id="cost" name="cost" value="{{ old('cost', $product->cost) }}" placeholder="0.0000">
+                                </div>
+                            </div>
+                            <!-- end row -->
+
+                            <div class="row mb-3">
+                                <label for="price" class="col-sm-2 col-form-label">Price : </label>
+                                <div class="form-group col-sm-3">
+                                    <input type="text" class="form-control" id="price" name="price" value="{{ old('price', $product->price) }}" placeholder="0.0000">
+                                </div>
+                            </div>
+                            <!-- end row -->
+
+                            <div class="row mb-3">
+                                <label for="price_baht" class="col-sm-2 col-form-label">Price : </label>
+                                <div class="form-group col-sm-3">
+                                    <input type="text" class="form-control" id="price_baht" name="price_baht" value="{{ old('price_baht', $product->price_baht) }}" placeholder="0.0000">
+                                </div>
+                            </div>
+                            <!-- end row -->
+
+                            <div class="row mb-3">
+                                <label for="quantity" class="col-sm-2 col-form-label">Quantity : </label>
+                                <div class="form-group col-sm-3">
+                                    <input type="text" class="form-control" id="quantity" name="quantity" value="{{ old('quantity', $product->quantity) }}" placeholder="0.0000">
+                                </div>
+                            </div>
+                            <!-- end row -->
+
+                            <input type="submit" class="btn btn-info waves-effect waves-light" value="  Save  ">
                             <a href="{{ url()->previous() }}" class="btn btn-danger waves-effect waves-light">Cancel</a>
                         </form>
                     </div>

@@ -8,7 +8,7 @@
         <div class="row">
             <div class="col-12">
                 <div class="page-title-box d-sm-flex align-items-center justify-content-between">
-                    <h4 class="mb-sm-0">Employee Type All</h4>
+                    <h4 class="mb-sm-0">Vat Type All</h4>
                 </div>
             </div>
         </div>
@@ -19,12 +19,9 @@
                 <div class="card">
                     <div class="card-body">
 
-                        <a href="{{ route('emptype.add') }}" class="btn btn-dark btn-rounded waves-effect waves-light"
-                            style="float:right;"><i class="fas fa-plus-circle"><span
-                                    style="font-family:tahoma; font-weight: normal;"> Add Payment Type</span></i></a>
-                        <br> <br>
+                        <!-- <br> -->
 
-                        <h4 class="card-title">Employee Type All Data</h4>
+                        <h4 class="card-title">Vat Type All Data</h4>
 
                         <table id="datatable" class="table table-bordered dt-responsive nowrap"
                             style="border-collapse: collapse; border-spacing: 0; width: 100%;">
@@ -35,17 +32,14 @@
                                     <th width="20%">Action</th>
                                 </tr>
                             </thead>
-
                             <tbody>
-                                @foreach($emptypes as $key => $item)
+                                @foreach($vattypes as $key => $item)
                                 <tr>
                                     <td> {{ $key+1}} </td>
                                     <td> {{ $item->name }} </td>
                                     <td>
-                                        <a href="{{ route('emptype.edit',$item->id) }}" class="btn btn-info sm"
+                                        <a href="{{ route('vattype.edit',$item->id) }}" class="btn btn-info sm"
                                             title="Edit Data"> <i class="fas fa-edit"></i> </a>
-                                        <a href="{{ route('emptype.delete',$item->id) }}" class="btn btn-danger sm"
-                                            title="Delete Data" id="delete"> <i class="fas fa-trash-alt"></i> </a>
                                     </td>
                                 </tr>
                                 @endforeach
