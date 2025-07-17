@@ -17,7 +17,7 @@
                             @csrf
 
                             <div class="row mb-3">
-                                <label for="example-text-input" class="col-sm-2 col-form-label">Employee Name </label>
+                                <label for="example-text-input" class="col-sm-2 col-form-label">Employee Name : </label>
                                 <div class="form-group col-sm-10">
                                     <input name="name" class="form-control" type="text">
                                 </div>
@@ -25,7 +25,7 @@
                             <!-- end row -->
 
                             <div class="row mb-3">
-                                <label class="col-sm-2 col-form-label">Employee Type </label>
+                                <label class="col-sm-2 col-form-label">Type : </label>
                                 <div class="col-sm-10">
                                     <select name="emptype_id" class="form-select" aria-label="Default select example">
                                         <option selected="">Please Select...</option>
@@ -38,7 +38,7 @@
                             <!-- end row -->
 
                             <div class="row mb-3">
-                                <label for="example-text-input" class="col-sm-2 col-form-label">Employee Mobile </label>
+                                <label for="example-text-input" class="col-sm-2 col-form-label">Mobile : </label>
                                 <div class="form-group col-sm-10">
                                     <input name="mobile_no" class="form-control" type="text">
                                 </div>
@@ -46,7 +46,7 @@
                             <!-- end row -->
 
                             <div class="row mb-3">
-                                <label for="example-text-input" class="col-sm-2 col-form-label">Employee Email </label>
+                                <label for="example-text-input" class="col-sm-2 col-form-label">Email : </label>
                                 <div class="form-group col-sm-10">
                                     <input name="email" class="form-control" type="email">
                                 </div>
@@ -54,27 +54,25 @@
                             <!-- end row -->
 
                             <div class="row mb-3">
-                                <label for="example-text-input" class="col-sm-2 col-form-label">Employee Address
-                                </label>
+                                <label for="address" class="col-sm-2 col-form-label">Address : </label>
                                 <div class="form-group col-sm-10">
-                                    <input name="address" class="form-control" type="text">
+                                    <textarea class="form-control" id="address" name="address" rows="3"></textarea>
                                 </div>
                             </div>
                             <!-- end row -->
 
                             <div class="row mb-3">
-                                <label for="example-text-input" class="col-sm-2 col-form-label">Employee Image </label>
+                                <label for="employee_image" class="col-sm-2 col-form-label">Image : </label>
                                 <div class="form-group col-sm-10">
-                                    <input name="employee_image" class="form-control" type="file" id="image">
+                                    <input type="file" class="form-control" id="employee_image" name="employee_image">
                                 </div>
                             </div>
                             <!-- end row -->
 
                             <div class="row mb-3">
-                                <label for="example-text-input" class="col-sm-2 col-form-label"> </label>
+                                <label for="showImage" class="col-sm-2 col-form-label"> </label>
                                 <div class="col-sm-10">
-                                    <img id="showImage" class="rounded avatar-lg"
-                                        src="{{  url('upload/no_image.jpg') }}" alt="Card image cap">
+                                    <img class="rounded avatar-lg" id="showImage" name="showImage" src="{{ url('upload/no_image.jpg') }}" alt="Employee Image">
                                 </div>
                             </div>
                             <!-- end row -->
@@ -149,7 +147,7 @@ $(document).ready(function() {
 
 <script type="text/javascript">
 $(document).ready(function() {
-    $('#image').change(function(e) {
+    $('#employee_image').change(function(e) {
         var reader = new FileReader();
         reader.onload = function(e) {
             $('#showImage').attr('src', e.target.result);

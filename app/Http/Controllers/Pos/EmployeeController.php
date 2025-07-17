@@ -74,6 +74,10 @@ class EmployeeController extends Controller
             Image::make($image)->resize(200,200)->save('upload/employee/'.$name_gen);
             $save_url = 'upload/employee/'.$name_gen;
 
+            $employees = Employee::findOrFail($employee_id);
+            $img = $employees->employee_image;
+            unlink($img);
+
             Employee::findOrFail($employee_id)->update([
                 'name' => $request->name,
                 'emptype_id' => $request->emptype_id,

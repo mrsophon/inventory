@@ -30,7 +30,7 @@
                             style="border-collapse: collapse; border-spacing: 0; width: 100%;">
                             <thead>
                                 <tr>
-                                    <th>Sl</th>
+                                    <th>#</th>
                                     <th>Name</th>
                                     <th>Employee Image </th>
                                     <th>Employee Type</th>

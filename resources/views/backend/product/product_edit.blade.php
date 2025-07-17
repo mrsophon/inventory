@@ -41,7 +41,15 @@
                             <!-- end row -->
 
                             <div class="row mb-3">
-                                <label for="item_set" class="col-sm-2 col-form-label">Product Set : </label>
+                                <label for="stn_desc" class="col-sm-2 col-form-label">Stone Description : </label>
+                                <div class="form-group col-sm-10">
+                                    <textarea class="form-control" id="stn_desc" name="stn_desc" rows="3">{{ old('stn_desc', $product->stn_desc) }}</textarea>
+                                </div>
+                            </div>
+                            <!-- end row -->
+
+                            <div class="row mb-3">
+                                <label for="item_set" class="col-sm-2 col-form-label">Set : </label>
                                 <div class="form-group col-sm-10">
                                     <input type="text" class="form-control" id="item_set" name="item_set" value="{{ old('item_set', $product->item_set) }}">
                                 </div>
@@ -49,9 +57,16 @@
                             <!-- end row -->
 
                             <div class="row mb-3">
-                                <label for="stn_desc" class="col-sm-2 col-form-label">Stone Description : </label>
-                                <div class="form-group col-sm-10">
-                                    <textarea class="form-control" id="stn_desc" name="stn_desc" rows="3">{{ old('stn_desc', $product->stn_desc) }}</textarea>
+                                <label for="brand_id" class="col-sm-2 col-form-label">Brand : </label>
+                                <div class="col-sm-10">
+                                    <select class="form-select" id="brand_id" name="brand_id" aria-label="Select Brand">
+                                        <option selected="">Please Select...</option>
+                                        @foreach($brand as $brn)
+                                        <option value="{{ $brn->id }}"
+                                            {{ $brn->id == old('brand_id', $product->brand_id) ? 'selected' : '' }}>{{ $brn->name }}
+                                        </option>
+                                        @endforeach
+                                    </select>
                                 </div>
                             </div>
                             <!-- end row -->
@@ -64,21 +79,6 @@
                                         @foreach($supplier as $supp)
                                         <option value="{{ $supp->id }}"
                                             {{ $supp->id == old('supplier_id', $product->supplier_id) ? 'selected' : '' }}>{{ $supp->name }}
-                                        </option>
-                                        @endforeach
-                                    </select>
-                                </div>
-                            </div>
-                            <!-- end row -->
-
-                            <div class="row mb-3">
-                                <label for="unit_id" class="col-sm-2 col-form-label">Unit : </label>
-                                <div class="col-sm-10">
-                                    <select class="form-select" id="unit_id" name="unit_id" aria-label="Select Unit">
-                                        <option selected="">Please Select...</option>
-                                        @foreach($unit as $uni)
-                                        <option value="{{ $uni->id }}"
-                                            {{ $uni->id == old('unit_id', $product->unit_id) ? 'selected' : '' }}>{{ $uni->name }}
                                         </option>
                                         @endforeach
                                     </select>
@@ -102,13 +102,13 @@
                             <!-- end row -->
 
                             <div class="row mb-3">
-                                <label for="brand_id" class="col-sm-2 col-form-label">Brand : </label>
+                                <label for="type_id" class="col-sm-2 col-form-label">Type : </label>
                                 <div class="col-sm-10">
-                                    <select class="form-select" id="brand_id" name="brand_id" aria-label="Select Brand">
+                                    <select class="form-select" id="type_id" name="type_id" aria-label="Select Type">
                                         <option selected="">Please Select...</option>
-                                        @foreach($brand as $brn)
-                                        <option value="{{ $brn->id }}"
-                                            {{ $brn->id == old('brand_id', $product->brand_id) ? 'selected' : '' }}>{{ $brn->name }}
+                                        @foreach($type as $typ)
+                                        <option value="{{ $typ->id }}"
+                                            {{ $typ->id == old('type_id', $product->type_id) ? 'selected' : '' }}>{{ $typ->name }}
                                         </option>
                                         @endforeach
                                     </select>
@@ -117,13 +117,13 @@
                             <!-- end row -->
 
                             <div class="row mb-3">
-                                <label for="type_id" class="col-sm-2 col-form-label">Type : </label>
+                                <label for="unit_id" class="col-sm-2 col-form-label">Unit : </label>
                                 <div class="col-sm-10">
-                                    <select class="form-select" id="type_id" name="type_id" aria-label="Select Type">
+                                    <select class="form-select" id="unit_id" name="unit_id" aria-label="Select Unit">
                                         <option selected="">Please Select...</option>
-                                        @foreach($type as $typ)
-                                        <option value="{{ $typ->id }}"
-                                            {{ $typ->id == old('type_id', $product->type_id) ? 'selected' : '' }}>{{ $typ->name }}
+                                        @foreach($unit as $uni)
+                                        <option value="{{ $uni->id }}"
+                                            {{ $uni->id == old('unit_id', $product->unit_id) ? 'selected' : '' }}>{{ $uni->name }}
                                         </option>
                                         @endforeach
                                     </select>
@@ -148,9 +148,84 @@
                             <!-- end row -->
 
                             <div class="row mb-3">
-                                <label for="price_baht" class="col-sm-2 col-form-label">Price : </label>
+                                <label for="price_baht" class="col-sm-2 col-form-label">Price Baht : </label>
                                 <div class="form-group col-sm-3">
                                     <input type="text" class="form-control" id="price_baht" name="price_baht" value="{{ old('price_baht', $product->price_baht) }}" placeholder="0.0000">
+                                </div>
+                            </div>
+                            <!-- end row -->
+
+                            <div class="row mb-3">
+                                <label for="price_range" class="col-sm-2 col-form-label">Price Range : </label>
+                                <div class="form-group col-sm-10">
+                                    <input type="text" class="form-control" id="price_range" name="price_range" value="{{ old('price_range', $product->price_range) }}">
+                                </div>
+                            </div>
+                            <!-- end row -->
+
+                            <div class="row mb-3">
+                                <label for="vattype_id" class="col-sm-2 col-form-label">Vat Type : </label>
+                                <div class="col-sm-10">
+                                    <select class="form-select" id="vattype_id" name="vattype_id" aria-label="Select Vat Type">
+                                        <option selected="">Please Select...</option>
+                                        @foreach($vattype as $vattyp)
+                                        <option value="{{ $vattyp->id }}"
+                                            {{ $vattyp->id == old('vattype_id', $product->vattype_id) ? 'selected' : '' }}>{{ $vattyp->name }}
+                                        </option>
+                                        @endforeach
+                                    </select>
+                                </div>
+                            </div>
+                            <!-- end row -->
+
+                            <div class="row mb-3">
+                                <label for="metal_wgt" class="col-sm-2 col-form-label">Metal Weight : </label>
+                                <div class="form-group col-sm-3">
+                                    <input type="text" class="form-control" id="metal_wgt" name="metal_wgt" value="{{ old('metal_wgt', $product->metal_wgt) }}" placeholder="0.0000">
+                                </div>
+                            </div>
+                            <!-- end row -->
+
+                            <div class="row mb-3">
+                                <label for="gold_wgt" class="col-sm-2 col-form-label">Gold Weight : </label>
+                                <div class="form-group col-sm-3">
+                                    <input type="text" class="form-control" id="gold_wgt" name="gold_wgt" value="{{ old('gold_wgt', $product->gold_wgt) }}" placeholder="0.0000">
+                                </div>
+                            </div>
+                            <!-- end row -->
+
+                            <div class="row mb-3">
+                                <label for="net_wgt" class="col-sm-2 col-form-label">Net Weight : </label>
+                                <div class="form-group col-sm-3">
+                                    <input type="text" class="form-control" id="net_wgt" name="net_wgt" value="{{ old('net_wgt', $product->net_wgt) }}" placeholder="0.0000">
+                                </div>
+                            </div>
+                            <!-- end row -->
+
+                            <div class="row mb-3">
+                                <label for="date" class="col-sm-2 col-form-label">Date : </label>
+                                <div class="form-group col-sm-3">
+                                    <input type="date" class="form-control example-date-input" id="date" name="date" value="{{ old('date', $product->date) }}">
+                                </div>
+                            </div>
+                            <!-- end row -->
+
+                            <div class="row mb-3">
+                                <label for="note" class="col-sm-2 col-form-label">Note : </label>
+                                <div class="form-group col-sm-10">
+                                    <textarea class="form-control" id="note" name="note" rows="3">{{ old('note', $product->note) }}</textarea>
+                                </div>
+                            </div>
+                            <!-- end row -->
+
+                            <div class="row mb-3">
+                                <label for="stat" class="col-sm-2 col-form-label">Status : </label>
+                                <div class="col-sm-3">
+                                    <select class="form-select" id="stat" name="stat" aria-label="Select Status">
+                                        <option selected="">Please Select...</option>
+                                        <option value="1" {{ "1" == old('status', $product->status) ? 'selected' : '' }}>Active</option>
+                                        <option value="0" {{ "0" == old('status', $product->status) ? 'selected' : '' }}>Inactive</option>
+                                    </select>
                                 </div>
                             </div>
                             <!-- end row -->
@@ -159,6 +234,22 @@
                                 <label for="quantity" class="col-sm-2 col-form-label">Quantity : </label>
                                 <div class="form-group col-sm-3">
                                     <input type="text" class="form-control" id="quantity" name="quantity" value="{{ old('quantity', $product->quantity) }}" placeholder="0.0000">
+                                </div>
+                            </div>
+                            <!-- end row -->
+
+                            <div class="row mb-3">
+                                <label for="product_image" class="col-sm-2 col-form-label">Image : </label>
+                                <div class="form-group col-sm-10">
+                                    <input type="file" class="form-control" id="product_image" name="product_image">
+                                </div>
+                            </div>
+                            <!-- end row -->
+
+                            <div class="row mb-3">
+                                <label for="showImage" class="col-sm-2 col-form-label"> </label>
+                                <div class="form-group col-sm-10">
+                                    <img id="showImage" class="rounded avatar-lg" src="{{ asset($product->product_image) }}" alt="Product Image">
                                 </div>
                             </div>
                             <!-- end row -->
@@ -232,5 +323,16 @@ $(document).ready(function() {
     });
 </script>
 
+<script type="text/javascript">
+$(document).ready(function() {
+    $('#product_image').change(function(e) {
+        var reader = new FileReader();
+        reader.onload = function(e) {
+            $('#showImage').attr('src', e.target.result);
+        }
+        reader.readAsDataURL(e.target.files['0']);
+    });
+});
+</script>
 
 @endsection
