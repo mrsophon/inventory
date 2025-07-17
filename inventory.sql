@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 16, 2025 at 01:10 PM
+-- Generation Time: Jul 17, 2025 at 01:03 PM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -119,7 +119,7 @@ CREATE TABLE IF NOT EXISTS `employees` (
   `employee_image` varchar(255) DEFAULT NULL,
   `mobile_no` varchar(255) DEFAULT NULL,
   `email` varchar(255) DEFAULT NULL,
-  `address` varchar(255) DEFAULT NULL,
+  `address` text DEFAULT NULL,
   `status` tinyint(4) NOT NULL DEFAULT 1,
   `created_by` int(11) DEFAULT NULL,
   `updated_by` int(11) DEFAULT NULL,
@@ -133,8 +133,8 @@ CREATE TABLE IF NOT EXISTS `employees` (
 --
 
 INSERT INTO `employees` (`id`, `name`, `emptype_id`, `employee_image`, `mobile_no`, `email`, `address`, `status`, `created_by`, `updated_by`, `created_at`, `updated_at`) VALUES
-(1, 'สมชาย ตัวอย่าง', 1, 'upload/employee/1822390070247406.jpg', '0812345678', 'somchai@mail.com', '123', 1, 1, NULL, '2025-01-27 08:30:04', NULL),
-(2, 'สมหญิง 2', 2, 'upload/employee/1822398476249667.jpg', '08123478901', 'abcd@mail.com', '4567', 1, 1, 1, '2025-01-27 10:43:41', '2025-01-27 11:08:18');
+(1, 'สมชาย ตัวอย่าง', 1, 'upload/employee/1837888738222222.jpg', '0812345678', 'somchai@mail.com', '123\r\n456\r\n789', 1, 1, 2, '2025-01-27 08:30:04', '2025-07-17 10:14:46'),
+(2, 'สมหญิง 2', 2, 'upload/employee/1837889213060515.jpg', '08123478901', 'abcd@mail.com', '4567\r\n89\r\n0112', 1, 1, 2, '2025-01-27 10:43:41', '2025-07-17 10:22:18');
 
 -- --------------------------------------------------------
 
@@ -484,7 +484,7 @@ INSERT INTO `products` (`id`, `supplier_id`, `unit_id`, `category_id`, `name`, `
 (4, 4, 2, 1, 'Shah Cement', 0, NULL, NULL, NULL, NULL, NULL, NULL, 0, 0, 0, NULL, NULL, 0, 0, 0, NULL, NULL, NULL, 1, 2, NULL, '2022-11-02 07:40:45', NULL),
 (5, 5, 2, 1, 'Madina Cement', 0, NULL, NULL, NULL, NULL, NULL, NULL, 0, 0, 0, NULL, NULL, 0, 0, 0, NULL, NULL, NULL, 1, 2, NULL, '2022-11-02 07:41:16', NULL),
 (6, 3, 1, 3, 'Walton Mobile w52', 12.5, NULL, NULL, NULL, NULL, NULL, NULL, 0, 0, 0, NULL, NULL, 0, 0, 0, NULL, NULL, NULL, 1, 2, 2, '2022-11-02 07:42:07', '2025-07-15 09:50:56'),
-(7, 3, 1, 3, 'Walton Mobile w55', 1234567890.1234, '1. ITEM_DESC\r\n2. \r\n3.', 'dimension', 'stn_desc', 'item_set', NULL, NULL, 123, 456, 789, 'a-b', NULL, 111, 222, 333, '2025-07-15', 'note', NULL, 1, 2, 2, '2022-11-02 07:42:50', '2025-07-16 05:51:22');
+(7, 3, 1, 3, 'Walton Mobile w55', 1234567890.1234, '1. ITEM_DESC\r\n2. \r\n3.', 'dimension', 'stn_desc', 'item_set', NULL, NULL, 123, 456, 789, 'a-b', NULL, 111, 222, 333, '2025-07-15', 'note', 'upload/employee/1822390070247406.jpg', 1, 2, 2, '2022-11-02 07:42:50', '2025-07-16 05:51:22');
 
 -- --------------------------------------------------------
 
