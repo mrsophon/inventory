@@ -60,7 +60,7 @@
                                 <label for="brand_id" class="col-sm-2 col-form-label">Brand : </label>
                                 <div class="col-sm-10">
                                     <select class="form-select" id="brand_id" name="brand_id" aria-label="Select Brand">
-                                        <option selected="">Please Select...</option>
+                                        <option selected value="">Please Select...</option>
                                         @foreach($brand as $brn)
                                         <option value="{{ $brn->id }}"
                                             {{ $brn->id == old('brand_id', $product->brand_id) ? 'selected' : '' }}>{{ $brn->name }}
@@ -75,7 +75,7 @@
                                 <label for="supplier_id" class="col-sm-2 col-form-label">Supplier : </label>
                                 <div class="col-sm-10">
                                     <select class="form-select" id="supplier_id" name="supplier_id" aria-label="Select Supplier">
-                                        <option selected="">Please Select...</option>
+                                        <option selected value="">Please Select...</option>
                                         @foreach($supplier as $supp)
                                         <option value="{{ $supp->id }}"
                                             {{ $supp->id == old('supplier_id', $product->supplier_id) ? 'selected' : '' }}>{{ $supp->name }}
@@ -90,7 +90,7 @@
                                 <label for="category_id" class="col-sm-2 col-form-label">Category : </label>
                                 <div class="col-sm-10">
                                     <select class="form-select" id="category_id" name="category_id" aria-label="Select Category">
-                                        <option selected="">Please Select...</option>
+                                        <option selected value="">Please Select...</option>
                                         @foreach($category as $cat)
                                         <option value="{{ $cat->id }}"
                                             {{ $cat->id == old('category_id', $product->category_id) ? 'selected' : '' }}>{{ $cat->name }}
@@ -105,7 +105,7 @@
                                 <label for="type_id" class="col-sm-2 col-form-label">Type : </label>
                                 <div class="col-sm-10">
                                     <select class="form-select" id="type_id" name="type_id" aria-label="Select Type">
-                                        <option selected="">Please Select...</option>
+                                        <option selected value="">Please Select...</option>
                                         @foreach($type as $typ)
                                         <option value="{{ $typ->id }}"
                                             {{ $typ->id == old('type_id', $product->type_id) ? 'selected' : '' }}>{{ $typ->name }}
@@ -120,7 +120,7 @@
                                 <label for="unit_id" class="col-sm-2 col-form-label">Unit : </label>
                                 <div class="col-sm-10">
                                     <select class="form-select" id="unit_id" name="unit_id" aria-label="Select Unit">
-                                        <option selected="">Please Select...</option>
+                                        <option selected value="">Please Select...</option>
                                         @foreach($unit as $uni)
                                         <option value="{{ $uni->id }}"
                                             {{ $uni->id == old('unit_id', $product->unit_id) ? 'selected' : '' }}>{{ $uni->name }}
@@ -167,7 +167,7 @@
                                 <label for="vattype_id" class="col-sm-2 col-form-label">Vat Type : </label>
                                 <div class="col-sm-10">
                                     <select class="form-select" id="vattype_id" name="vattype_id" aria-label="Select Vat Type">
-                                        <option selected="">Please Select...</option>
+                                        <option selected value="">Please Select...</option>
                                         @foreach($vattype as $vattyp)
                                         <option value="{{ $vattyp->id }}"
                                             {{ $vattyp->id == old('vattype_id', $product->vattype_id) ? 'selected' : '' }}>{{ $vattyp->name }}
@@ -203,9 +203,9 @@
                             <!-- end row -->
 
                             <div class="row mb-3">
-                                <label for="date" class="col-sm-2 col-form-label">Date : </label>
+                                <label for="pdate" class="col-sm-2 col-form-label">Date : </label>
                                 <div class="form-group col-sm-3">
-                                    <input type="date" class="form-control example-date-input" id="date" name="date" value="{{ old('date', $product->date) }}">
+                                    <input type="date" class="form-control example-pdate-input" id="pdate" name="pdate" value="{{ old('pdate', $pdate) }}">
                                 </div>
                             </div>
                             <!-- end row -->
@@ -222,7 +222,7 @@
                                 <label for="stat" class="col-sm-2 col-form-label">Status : </label>
                                 <div class="col-sm-3">
                                     <select class="form-select" id="stat" name="stat" aria-label="Select Status">
-                                        <option selected="">Please Select...</option>
+                                        <option selected value="">Please Select...</option>
                                         <option value="1" {{ "1" == old('status', $product->status) ? 'selected' : '' }}>Active</option>
                                         <option value="0" {{ "0" == old('status', $product->status) ? 'selected' : '' }}>Inactive</option>
                                     </select>

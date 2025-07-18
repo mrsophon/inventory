@@ -29,7 +29,7 @@
                                 <label class="col-sm-2 col-form-label">Type : </label>
                                 <div class="col-sm-10">
                                     <select class="form-select" id="emptype_id" name="emptype_id" aria-label="Select Type">
-                                        <option selected="">Please Select...</option>
+                                        <option selected value="">Please Select...</option>
                                         @foreach($emptype as $empt)
                                         <option value="{{ $empt->id }}"
                                             {{ $empt->id == old('emptype_id', $employee->emptype_id) ? 'selected' : '' }}>{{ $empt->name }}

@@ -34,7 +34,7 @@
                                 <label for="supplier_id" class="col-sm-2 col-form-label">Supplier </label>
                                 <div class="col-sm-10">
                                     <select id="supplier_id" name="supplier_id" class="form-select" aria-label="Default select example">
-                                        <option selected="">Please Select...</option>
+                                        <option selected value="">Please Select...</option>
                                         @foreach($supplier as $supp)
                                         <option value="{{ $supp->id }}">{{ $supp->name }}</option>
                                         @endforeach
@@ -47,7 +47,7 @@
                                 <label for="unit_id" class="col-sm-2 col-form-label">Unit </label>
                                 <div class="col-sm-10">
                                     <select id="unit_id" name="unit_id" class="form-select" aria-label="Default select example">
-                                        <option selected="">Please Select...</option>
+                                        <option selected value="">Please Select...</option>
                                         @foreach($unit as $uni)
                                         <option value="{{ $uni->id }}">{{ $uni->name }}</option>
                                         @endforeach
@@ -60,7 +60,7 @@
                                 <label for="category_id" class="col-sm-2 col-form-label">Category </label>
                                 <div class="col-sm-10">
                                     <select id="category_id" name="category_id" class="form-select" aria-label="Default select example">
-                                        <option selected="">Please Select...</option>
+                                        <option selected value="">Please Select...</option>
                                         @foreach($category as $cat)
                                         <option value="{{ $cat->id }}">{{ $cat->name }}</option>
                                         @endforeach

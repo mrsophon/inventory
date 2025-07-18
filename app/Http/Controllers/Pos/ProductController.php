@@ -34,7 +34,8 @@ class ProductController extends Controller
         $brand = Brand::all();
         $type = Type::all();
         $vattype = Vattype::all();
-        return view('backend.product.product_add',compact('supplier','category','unit','brand','type','vattype'));
+        $pdate = date('Y-m-d');
+        return view('backend.product.product_add',compact('supplier','category','unit','brand','type','vattype','pdate'));
     } // End Method
 
 
@@ -44,6 +45,8 @@ class ProductController extends Controller
         $name_gen = hexdec(uniqid()).'.'.$image->getClientOriginalExtension(); // 343434.png
         Image::make($image)->resize(200,200)->save('upload/product/'.$name_gen);
         $save_url = 'upload/product/'.$name_gen;
+
+        $pdate = date('Y-m-d',strtotime($request->pdate));
 
         Product::insert([
             'name' => $request->name,
@@ -65,7 +68,7 @@ class ProductController extends Controller
             'metal_wgt' => $request->metal_wgt,
             'gold_wgt' => $request->gold_wgt,
             'net_wgt' => $request->net_wgt,
-            'date' => $request->date,
+            'date' => $pdate,
             'note' => $request->note,
             'product_image' => $save_url,
             'status' => $request->stat,
@@ -92,7 +95,8 @@ class ProductController extends Controller
         $type = Type::all();
         $vattype = Vattype::all();
         $product = Product::findOrFail($id);
-        return view('backend.product.product_edit',compact('product','supplier','category','unit','brand','type','vattype'));
+        $pdate = date('Y-m-d',strtotime($product->date));
+        return view('backend.product.product_edit',compact('product','supplier','category','unit','brand','type','vattype','pdate'));
     } // End Method
 
 
@@ -110,6 +114,8 @@ class ProductController extends Controller
             $img = $products->product_image;
             unlink($img);
 
+            $pdate = date('Y-m-d',strtotime($request->pdate));
+
             Product::findOrFail($product_id)->update([
                 'name' => $request->name,
                 'supplier_id' => $request->supplier_id,
@@ -130,7 +136,7 @@ class ProductController extends Controller
                 'metal_wgt' => $request->metal_wgt,
                 'gold_wgt' => $request->gold_wgt,
                 'net_wgt' => $request->net_wgt,
-                'date' => $request->date,
+                'date' => $pdate,
                 'note' => $request->note,
                 'product_image' => $save_url,
                 'status' => $request->stat,
@@ -147,6 +153,8 @@ class ProductController extends Controller
 
         } else {
 
+            $pdate = date('Y-m-d',strtotime($request->pdate));
+
             Product::findOrFail($product_id)->update([
                 'name' => $request->name,
                 'supplier_id' => $request->supplier_id,
@@ -167,7 +175,7 @@ class ProductController extends Controller
                 'metal_wgt' => $request->metal_wgt,
                 'gold_wgt' => $request->gold_wgt,
                 'net_wgt' => $request->net_wgt,
-                'date' => $request->date,
+                'date' => $pdate,
                 'note' => $request->note,
                 'status' => $request->stat,
                 'updated_by' => Auth::user()->id,
