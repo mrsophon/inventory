@@ -79,6 +79,7 @@
 
                             <input type="submit" class="btn btn-info waves-effect waves-light" value="Add Product">
                             <a href="{{ url()->previous() }}" class="btn btn-danger waves-effect waves-light">Cancel</a>
+                            <button class="btn btn-warning waves-effect waves-light" onclick="">Delete Image</button>
                         </form>
                     </div>
                 </div>

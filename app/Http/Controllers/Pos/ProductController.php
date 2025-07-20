@@ -110,9 +110,11 @@ class ProductController extends Controller
             Image::make($image)->resize(200,200)->save('upload/product/'.$name_gen);
             $save_url = 'upload/product/'.$name_gen;
 
-            $products = Employee::findOrFail($product_id);
+            $products = Product::findOrFail($product_id);
             $img = $products->product_image;
-            unlink($img);
+            if (file_exists($img)) {
+                unlink($img);
+            }
 
             $pdate = date('Y-m-d',strtotime($request->pdate));
 
@@ -153,6 +155,12 @@ class ProductController extends Controller
 
         } else {
 
+            $products = Product::findOrFail($product_id);
+            $img = $products->product_image;
+            if (file_exists($img)) {
+                unlink($img);
+            }
+
             $pdate = date('Y-m-d',strtotime($request->pdate));
 
             Product::findOrFail($product_id)->update([
@@ -177,6 +185,7 @@ class ProductController extends Controller
                 'net_wgt' => $request->net_wgt,
                 'date' => $pdate,
                 'note' => $request->note,
+                'product_image' => $request->product_image,
                 'status' => $request->stat,
                 'updated_by' => Auth::user()->id,
                 'updated_at' => Carbon::now(),
@@ -205,7 +214,9 @@ class ProductController extends Controller
 
         $products = Product::findOrFail($id);
         $img = $products->product_image;
-        unlink($img);
+        if (file_exists($img)) {
+            unlink($img);
+        }
 
         Product::findOrFail($id)->delete();
 

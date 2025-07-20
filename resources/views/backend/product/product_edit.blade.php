@@ -11,7 +11,7 @@
 
                         <h4 class="card-title">Edit Product Page </h4><br><br>
 
-                        <form method="post" action="{{ route('product.update') }}" id="myForm">
+                        <form method="post" action="{{ route('product.update') }}" id="myForm" enctype="multipart/form-data">
                             @csrf
 
                             <input type="hidden" name="id" value="{{ $product->id }}">
@@ -249,7 +249,13 @@
                             <div class="row mb-3">
                                 <label for="showImage" class="col-sm-2 col-form-label"> </label>
                                 <div class="form-group col-sm-10">
-                                    <img id="showImage" class="rounded avatar-lg" src="{{ asset($product->product_image) }}" alt="Product Image">
+                                    @if($product->product_image == null)
+                                        <img class="rounded avatar-lg" id="showImage" name="showImage" src="{{ url('upload/no_image.jpg') }}" alt="Product Image"> &nbsp;
+                                        <button type="button" class="btn btn-warning position-absolute top-0" id="btnDelImage" hidden>Delete Image</button>
+                                    @else
+                                        <img class="rounded avatar-lg" id="showImage" name="showImage" src="{{ asset($product->product_image) }}" alt="Product Image"> &nbsp;
+                                        <button type="button" class="btn btn-warning position-absolute top-0" id="btnDelImage">Delete Image</button>
+                                    @endif
                                 </div>
                             </div>
                             <!-- end row -->
@@ -331,6 +337,13 @@ $(document).ready(function() {
             $('#showImage').attr('src', e.target.result);
         }
         reader.readAsDataURL(e.target.files['0']);
+        $("#btnDelImage").prop("hidden", false);
+    });
+
+    $('#btnDelImage').click(function() {
+        $('#showImage').attr('src', "{{ url('upload/no_image.jpg') }}" );
+        $('#product_image').val('');
+        $("#btnDelImage").prop("hidden", true);
     });
 });
 </script>
