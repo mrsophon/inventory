@@ -41,45 +41,90 @@ class ProductController extends Controller
 
     public function ProductStore(Request $request){
 
-        $image = $request->file('product_image');
-        $name_gen = hexdec(uniqid()).'.'.$image->getClientOriginalExtension(); // 343434.png
-        Image::make($image)->resize(200,200)->save('upload/product/'.$name_gen);
-        $save_url = 'upload/product/'.$name_gen;
+        if ($request->file('product_image')) {
 
-        $pdate = date('Y-m-d',strtotime($request->pdate));
+            $image = $request->file('product_image');
+            $name_gen = hexdec(uniqid()).'.'.$image->getClientOriginalExtension(); // 343434.png
+            // Image::make($image)->resize(200,200)->save('upload/product/'.$name_gen);
+            Image::make($image)->resize(800, null, function ($constraint) {
+                $constraint->aspectRatio();
+                $constraint->upsize();
+            })->save('upload/product/'.$name_gen);
+            $save_url = 'upload/product/'.$name_gen;
 
-        Product::insert([
-            'name' => $request->name,
-            'supplier_id' => $request->supplier_id,
-            'unit_id' => $request->unit_id,
-            'category_id' => $request->category_id,
-            'quantity' => $request->quantity,
-            'item_desc' => $request->item_desc,
-            'dimension' => $request->dimension,
-            'stn_desc' => $request->stn_desc,
-            'item_set' => $request->item_set,
-            'brand_id' => $request->brand_id,
-            'type_id' => $request->type_id,
-            'cost' => $request->cost,
-            'price' => $request->price,
-            'price_baht' => $request->price_baht,
-            'price_range' => $request->price_range,
-            'vattype_id' => $request->vattype_id,
-            'metal_wgt' => $request->metal_wgt,
-            'gold_wgt' => $request->gold_wgt,
-            'net_wgt' => $request->net_wgt,
-            'date' => $pdate,
-            'note' => $request->note,
-            'product_image' => $save_url,
-            'status' => $request->stat,
-            'created_by' => Auth::user()->id,
-            'created_at' => Carbon::now(),
-        ]);
+            $pdate = date('Y-m-d',strtotime($request->pdate));
 
-        $notification = array(
-            'message' => 'Product Inserted Successfully',
-            'alert-type' => 'success'
-        );
+            Product::insert([
+                'name' => $request->name,
+                'supplier_id' => $request->supplier_id,
+                'unit_id' => $request->unit_id,
+                'category_id' => $request->category_id,
+                'quantity' => $request->quantity,
+                'item_desc' => $request->item_desc,
+                'dimension' => $request->dimension,
+                'stn_desc' => $request->stn_desc,
+                'item_set' => $request->item_set,
+                'brand_id' => $request->brand_id,
+                'type_id' => $request->type_id,
+                'cost' => $request->cost,
+                'price' => $request->price,
+                'price_baht' => $request->price_baht,
+                'price_range' => $request->price_range,
+                'vattype_id' => $request->vattype_id,
+                'metal_wgt' => $request->metal_wgt,
+                'gold_wgt' => $request->gold_wgt,
+                'net_wgt' => $request->net_wgt,
+                'date' => $pdate,
+                'note' => $request->note,
+                'product_image' => $save_url,
+                'status' => $request->stat,
+                'created_by' => Auth::user()->id,
+                'created_at' => Carbon::now(),
+            ]);
+
+            $notification = array(
+                'message' => 'Product Inserted with Image Successfully',
+                'alert-type' => 'success'
+            );
+
+        } else {
+
+            $pdate = date('Y-m-d',strtotime($request->pdate));
+
+            Product::insert([
+                'name' => $request->name,
+                'supplier_id' => $request->supplier_id,
+                'unit_id' => $request->unit_id,
+                'category_id' => $request->category_id,
+                'quantity' => $request->quantity,
+                'item_desc' => $request->item_desc,
+                'dimension' => $request->dimension,
+                'stn_desc' => $request->stn_desc,
+                'item_set' => $request->item_set,
+                'brand_id' => $request->brand_id,
+                'type_id' => $request->type_id,
+                'cost' => $request->cost,
+                'price' => $request->price,
+                'price_baht' => $request->price_baht,
+                'price_range' => $request->price_range,
+                'vattype_id' => $request->vattype_id,
+                'metal_wgt' => $request->metal_wgt,
+                'gold_wgt' => $request->gold_wgt,
+                'net_wgt' => $request->net_wgt,
+                'date' => $pdate,
+                'note' => $request->note,
+                'product_image' => $request->product_image,
+                'status' => $request->stat,
+                'created_by' => Auth::user()->id,
+                'created_at' => Carbon::now(),
+            ]);
+
+            $notification = array(
+                'message' => 'Product Updated without Image Successfully',
+                'alert-type' => 'success'
+            );
+
+        } // end else
 
         return redirect()->route('product.all')->with($notification);
 
@@ -107,7 +152,11 @@ class ProductController extends Controller
 
             $image = $request->file('product_image');
             $name_gen = hexdec(uniqid()).'.'.$image->getClientOriginalExtension(); // 343434.png
-            Image::make($image)->resize(200,200)->save('upload/product/'.$name_gen);
+            // Image::make($image)->resize(200,200)->save('upload/product/'.$name_gen);
+            Image::make($image)->resize(800, null, function ($constraint) {
+                $constraint->aspectRatio();
+                $constraint->upsize();
+            })->save('upload/product/'.$name_gen);
             $save_url = 'upload/product/'.$name_gen;
 
             $products = Product::findOrFail($product_id);
@@ -150,8 +199,6 @@ class ProductController extends Controller
                 'message' => 'Product Updated with Image Successfully',
                 'alert-type' => 'success'
             );
-
-            return redirect()->route('product.all')->with($notification);
 
         } else {
 
@@ -196,14 +243,7 @@ class ProductController extends Controller
                 'alert-type' => 'success'
             );
 
-            return redirect()->route('product.all')->with($notification);
-
         } // end else
-
-        $notification = array(
-            'message' => 'Product Updated Successfully',
-            'alert-type' => 'success'
-        );
 
         return redirect()->route('product.all')->with($notification);
 

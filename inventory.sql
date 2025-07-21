@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 20, 2025 at 07:21 PM
+-- Generation Time: Jul 21, 2025 at 01:07 PM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -485,7 +485,7 @@ INSERT INTO `products` (`id`, `supplier_id`, `unit_id`, `category_id`, `name`, `
 (3, 1, 2, 1, 'Bosundora Cement', 0, NULL, NULL, NULL, NULL, NULL, NULL, 0, 0, 0, NULL, NULL, 0, 0, 0, NULL, NULL, NULL, 1, 2, NULL, '2022-11-02 07:37:46', NULL),
 (4, 4, 2, 1, 'Shah Cement', 0, NULL, NULL, NULL, NULL, NULL, NULL, 0, 0, 0, NULL, NULL, 0, 0, 0, NULL, NULL, NULL, 1, 2, NULL, '2022-11-02 07:40:45', NULL),
 (5, 5, 2, 1, 'Madina Cement', 0, NULL, NULL, NULL, NULL, NULL, NULL, 0, 0, 0, NULL, NULL, 0, 0, 0, NULL, NULL, NULL, 1, 2, NULL, '2022-11-02 07:41:16', NULL),
-(6, 3, 1, 3, 'Walton Mobile w52', 12.5, NULL, NULL, NULL, NULL, NULL, NULL, 0, 0, 0, NULL, NULL, 0, 0, 0, '2025-07-20', NULL, 'upload/product/1838182716105343.jpg', 1, 2, 2, '2022-11-02 07:42:07', '2025-07-20 16:07:25'),
+(6, 3, 1, 3, 'Walton Mobile w52', 12.5, NULL, NULL, NULL, NULL, NULL, NULL, 0, 0, 0, NULL, NULL, 0, 0, 0, '2025-07-20', NULL, 'upload/product/1838244198787877.jpg', 1, 2, 2, '2022-11-02 07:42:07', '2025-07-21 08:24:39'),
 (7, 2, 1, 2, 'Walton Mobile w55', 1234567890.1234, '1. ITEM_DESC\r\n2. \r\n3.', 'dimension', 'stn_desc', 'item_set', NULL, 1, 123, 456, 789, 'a-b', 3, 111, 222, 333, '2025-07-19', 'note', 'upload/product/1838182830877460.jpg', 0, 2, 2, '2022-11-02 07:42:50', '2025-07-20 16:09:14');
 
 -- --------------------------------------------------------
