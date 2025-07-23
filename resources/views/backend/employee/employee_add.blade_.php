@@ -25,8 +25,8 @@
                             <!-- end row -->
 
                             <div class="row mb-3">
-                                <label for="emptype_id" class="col-sm-2 col-form-label">Type : </label>
-                                <div class="form-group col-sm-10">
+                                <label class="col-sm-2 col-form-label">Type : </label>
+                                <div class="col-sm-10">
                                     <select class="form-select" id="emptype_id" name="emptype_id" aria-label="Select Type">
                                         <option selected value="">Please Select...</option>
                                         @foreach($emptype as $empt)
@@ -71,9 +71,8 @@
 
                             <div class="row mb-3">
                                 <label for="showImage" class="col-sm-2 col-form-label"> </label>
-                                <div class="form-group col-sm-10">
-                                    <img class="rounded avatar-lg" id="showImage" name="showImage" src="{{ url('upload/no_image.jpg') }}" alt="Employee Image"> &nbsp;
-                                    <button type="button" class="btn btn-warning position-absolute top-0" id="btnDelImage" hidden>Delete Image</button>
+                                <div class="col-sm-10">
+                                    <img class="rounded avatar-lg" id="showImage" name="showImage" src="{{ url('upload/no_image.jpg') }}" alt="Employee Image">
                                 </div>
                             </div>
                             <!-- end row -->
@@ -113,19 +112,19 @@ $(document).ready(function() {
         },
         messages: {
             name: {
-                required: 'Please Enter Employee Name',
+                required: 'Please Enter Your Name',
             },
             emptype_id: {
-                required: 'Please Select Type',
+                required: 'Please Select One Employee Type',
             },
             mobile_no: {
-                required: 'Please Enter Mobile Number',
+                required: 'Please Enter Your Mobile Number',
             },
             email: {
-                required: 'Please Enter Email',
+                required: 'Please Enter Your Email',
             },
             address: {
-                required: 'Please Enter Address',
+                required: 'Please Enter Your Address',
             },
             employee_image: {
                 required: 'Please Select One Image',
@@ -154,13 +153,6 @@ $(document).ready(function() {
             $('#showImage').attr('src', e.target.result);
         }
         reader.readAsDataURL(e.target.files['0']);
-        $("#btnDelImage").prop("hidden", false);
-    });
-
-    $('#btnDelImage').click(function() {
-        $('#showImage').attr('src', "{{ url('upload/no_image.jpg') }}" );
-        $('#employee_image').val('');
-        $("#btnDelImage").prop("hidden", true);
     });
 });
 </script>

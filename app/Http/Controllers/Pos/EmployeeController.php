@@ -28,27 +28,52 @@ class EmployeeController extends Controller
 
     public function EmployeeStore(Request $request){
 
-        $image = $request->file('employee_image');
-        $name_gen = hexdec(uniqid()).'.'.$image->getClientOriginalExtension(); // 343434.png
-        Image::make($image)->resize(200,200)->save('upload/employee/'.$name_gen);
-        $save_url = 'upload/employee/'.$name_gen;
+        if ($request->file('employee_image')) {
 
-        Employee::insert([
-            'name' => $request->name,
-            'emptype_id' => $request->emptype_id,
-            'mobile_no' => $request->mobile_no,
-            'email' => $request->email,
-            'address' => $request->address,
-            'employee_image' => $save_url ,
-            'created_by' => Auth::user()->id,
-            'created_at' => Carbon::now(),
+            $image = $request->file('employee_image');
+            $name_gen = hexdec(uniqid()).'.'.$image->getClientOriginalExtension(); // 343434.png
+            // Image::make($image)->resize(200,200)->save('upload/employee/'.$name_gen);
+            Image::make($image)->resize(800, null, function ($constraint) {
+                $constraint->aspectRatio();
+                $constraint->upsize();
+            })->save('upload/employee/'.$name_gen);
+            $save_url = 'upload/employee/'.$name_gen;
 
-        ]);
+            Employee::insert([
+                'name' => $request->name,
+                'emptype_id' => $request->emptype_id,
+                'mobile_no' => $request->mobile_no,
+                'email' => $request->email,
+                'address' => $request->address,
+                'employee_image' => $save_url ,
+                'created_by' => Auth::user()->id,
+                'created_at' => Carbon::now()
+            ]);
 
-        $notification = array(
-            'message' => 'Employee Inserted Successfully',
-            'alert-type' => 'success'
-        );
+            $notification = array(
+                'message' => 'Employee Inserted with Image Successfully',
+                'alert-type' => 'success'
+            );
+
+        } else {
+
+            Employee::insert([
+                'name' => $request->name,
+                'emptype_id' => $request->emptype_id,
+                'mobile_no' => $request->mobile_no,
+                'email' => $request->email,
+                'address' => $request->address,
+                'employee_image' => $request->employee_image,
+                'created_by' => Auth::user()->id,
+                'created_at' => Carbon::now()
+            ]);
+
+            $notification = array(
+                'message' => 'Employee Inserted without Image Successfully',
+                'alert-type' => 'success'
+            );
+
+        } // end else
 
         return redirect()->route('employee.all')->with($notification);
 
@@ -71,12 +96,18 @@ class EmployeeController extends Controller
 
             $image = $request->file('employee_image');
             $name_gen = hexdec(uniqid()).'.'.$image->getClientOriginalExtension(); // 343434.png
-            Image::make($image)->resize(200,200)->save('upload/employee/'.$name_gen);
+            // Image::make($image)->resize(200,200)->save('upload/employee/'.$name_gen);
+            Image::make($image)->resize(800, null, function ($constraint) {
+                $constraint->aspectRatio();
+                $constraint->upsize();
+            })->save('upload/employee/'.$name_gen);
             $save_url = 'upload/employee/'.$name_gen;
 
             $employees = Employee::findOrFail($employee_id);
             $img = $employees->employee_image;
-            unlink($img);
+            if (file_exists($img)) {
+                unlink($img);
+            }
 
             Employee::findOrFail($employee_id)->update([
                 'name' => $request->name,
@@ -84,9 +115,9 @@ class EmployeeController extends Controller
                 'mobile_no' => $request->mobile_no,
                 'email' => $request->email,
                 'address' => $request->address,
-                'employee_image' => $save_url ,
+                'employee_image' => $save_url,
                 'updated_by' => Auth::user()->id,
-                'updated_at' => Carbon::now(),
+                'updated_at' => Carbon::now()
             ]);
 
             $notification = array(
@@ -94,9 +125,13 @@ class EmployeeController extends Controller
                 'alert-type' => 'success'
             );
 
-            return redirect()->route('employee.all')->with($notification);
-
         } else {
+
+            $employees = Employee::findOrFail($employee_id);
+            $img = $employees->employee_image;
+            if (file_exists($img)) {
+                unlink($img);
+            }
 
             Employee::findOrFail($employee_id)->update([
                 'name' => $request->name,
@@ -104,9 +139,9 @@ class EmployeeController extends Controller
                 'mobile_no' => $request->mobile_no,
                 'email' => $request->email,
                 'address' => $request->address,
+                'employee_image' => $request->employee_image,
                 'updated_by' => Auth::user()->id,
-                'updated_at' => Carbon::now(),
-
+                'updated_at' => Carbon::now()
             ]);
 
             $notification = array(
@@ -114,9 +149,9 @@ class EmployeeController extends Controller
                 'alert-type' => 'success'
             );
 
-            return redirect()->route('employee.all')->with($notification);
-
         } // end else
+
+        return redirect()->route('employee.all')->with($notification);
 
     } // End Method
 
@@ -125,7 +160,9 @@ class EmployeeController extends Controller
 
         $employees = Employee::findOrFail($id);
         $img = $employees->employee_image;
-        unlink($img);
+        if (file_exists($img)) {
+            unlink($img);
+        }
 
         Employee::findOrFail($id)->delete();
 

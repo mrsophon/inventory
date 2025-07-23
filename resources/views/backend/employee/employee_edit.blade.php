@@ -26,8 +26,8 @@
                             <!-- end row -->
 
                             <div class="row mb-3">
-                                <label class="col-sm-2 col-form-label">Type : </label>
-                                <div class="col-sm-10">
+                                <label for="emptype_id" class="col-sm-2 col-form-label">Type : </label>
+                                <div class="form-group col-sm-10">
                                     <select class="form-select" id="emptype_id" name="emptype_id" aria-label="Select Type">
                                         <option selected value="">Please Select...</option>
                                         @foreach($emptype as $empt)
@@ -74,8 +74,14 @@
 
                             <div class="row mb-3">
                                 <label for="showImage" class="col-sm-2 col-form-label"> </label>
-                                <div class="col-sm-10">
-                                    <img class="rounded avatar-lg" id="showImage" name="showImage" src="{{ asset($employee->employee_image) }}" alt="Employee Image">
+                                <div class="form-group col-sm-10">
+                                    @if($employee->employee_image == null)
+                                        <img class="rounded avatar-lg" id="showImage" name="showImage" src="{{ url('upload/no_image.jpg') }}" alt="Employee Image"> &nbsp;
+                                        <button type="button" class="btn btn-warning position-absolute top-0" id="btnDelImage" hidden>Delete Image</button>
+                                    @else
+                                        <img class="rounded avatar-lg" id="showImage" name="showImage" src="{{ asset($employee->employee_image) }}" alt="Employee Image"> &nbsp;
+                                        <button type="button" class="btn btn-warning position-absolute top-0" id="btnDelImage">Delete Image</button>
+                                    @endif
                                 </div>
                             </div>
                             <!-- end row -->
@@ -108,24 +114,24 @@ $(document).ready(function() {
             },
             address: {
                 required: true,
-            },
+            }
         },
         messages: {
             name: {
-                required: 'Please Enter Your Name',
+                required: 'Please Enter Employee Name',
             },
             emptype_id: {
-                required: 'Please Select One Employee Type',
+                required: 'Please Select Type',
             },
             mobile_no: {
-                required: 'Please Enter Your Mobile Number',
+                required: 'Please Enter Mobile Number',
             },
             email: {
-                required: 'Please Enter Your Email',
+                required: 'Please Enter Email',
             },
             address: {
-                required: 'Please Enter Your Address',
-            },
+                required: 'Please Enter Address',
+            }
         },
         errorElement: 'span',
         errorPlacement: function(error, element) {
@@ -150,6 +156,13 @@ $(document).ready(function() {
             $('#showImage').attr('src', e.target.result);
         }
         reader.readAsDataURL(e.target.files['0']);
+        $("#btnDelImage").prop("hidden", false);
+    });
+
+    $('#btnDelImage').click(function() {
+        $('#showImage').attr('src', "{{ url('upload/no_image.jpg') }}" );
+        $('#employee_image').val('');
+        $("#btnDelImage").prop("hidden", true);
     });
 });
 </script>

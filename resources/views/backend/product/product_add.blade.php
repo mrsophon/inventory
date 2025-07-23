@@ -15,21 +15,47 @@
                             @csrf
 
                             <div class="row mb-3">
-                                <label for="name" class="col-sm-2 col-form-label">Product Name </label>
+                                <label for="name" class="col-sm-2 col-form-label">Product Name : </label>
                                 <div class="form-group col-sm-10">
-                                    <input id="name" name="name" class="form-control" type="text">
+                                    <input type="text" class="form-control" id="name" name="name">
                                 </div>
                             </div>
                             <!-- end row -->
 
                             <div class="row mb-3">
-                                <label for="description" class="col-sm-2 col-form-label">Description </label>
+                                <label for="item_desc" class="col-sm-2 col-form-label">Description : </label>
                                 <div class="form-group col-sm-10">
-                                    <textarea id="description" name="description" class="form-control"></textarea>
+                                    <textarea class="form-control" id="item_desc" name="item_desc" rows="3"></textarea>
                                 </div>
                             </div>
                             <!-- end row -->
 
+                            <div class="row mb-3">
+                                <label for="dimension" class="col-sm-2 col-form-label">Dimension : </label>
+                                <div class="form-group col-sm-10">
+                                    <input type="text" class="form-control" id="dimension" name="dimension">
+                                </div>
+                            </div>
+                            <!-- end row -->
+
+                            <div class="row mb-3">
+                                <label for="stn_desc" class="col-sm-2 col-form-label">Stone Description : </label>
+                                <div class="form-group col-sm-10">
+                                    <textarea class="form-control" id="stn_desc" name="stn_desc" rows="3"></textarea>
+                                </div>
+                            </div>
+                            <!-- end row -->
+
+                            <div class="row mb-3">
+                                <label for="item_set" class="col-sm-2 col-form-label">Set : </label>
+                                <div class="form-group col-sm-10">
+                                    <input type="text" class="form-control" id="item_set" name="item_set">
+                                </div>
+                            </div>
+                            <!-- end row -->
+
+
+                            
                             <div class="row mb-3">
                                 <label for="supplier_id" class="col-sm-2 col-form-label">Supplier </label>
                                 <div class="col-sm-10">

@@ -59,7 +59,7 @@
                             <div class="row mb-3">
                                 <label for="brand_id" class="col-sm-2 col-form-label">Brand : </label>
                                 <div class="col-sm-10">
-                                    <select class="form-select" id="brand_id" name="brand_id" aria-label="Select Brand">
+                                    <select class="form-select select2" id="brand_id" name="brand_id" aria-label="Select Brand">
                                         <option selected value="">Please Select...</option>
                                         @foreach($brand as $brn)
                                         <option value="{{ $brn->id }}"
@@ -74,7 +74,7 @@
                             <div class="row mb-3">
                                 <label for="supplier_id" class="col-sm-2 col-form-label">Supplier : </label>
                                 <div class="col-sm-10">
-                                    <select class="form-select" id="supplier_id" name="supplier_id" aria-label="Select Supplier">
+                                    <select class="form-select select2" id="supplier_id" name="supplier_id" aria-label="Select Supplier">
                                         <option selected value="">Please Select...</option>
                                         @foreach($supplier as $supp)
                                         <option value="{{ $supp->id }}"
@@ -89,7 +89,7 @@
                             <div class="row mb-3">
                                 <label for="category_id" class="col-sm-2 col-form-label">Category : </label>
                                 <div class="col-sm-10">
-                                    <select class="form-select" id="category_id" name="category_id" aria-label="Select Category">
+                                    <select class="form-select select2" id="category_id" name="category_id" aria-label="Select Category">
                                         <option selected value="">Please Select...</option>
                                         @foreach($category as $cat)
                                         <option value="{{ $cat->id }}"
@@ -104,7 +104,7 @@
                             <div class="row mb-3">
                                 <label for="type_id" class="col-sm-2 col-form-label">Type : </label>
                                 <div class="col-sm-10">
-                                    <select class="form-select" id="type_id" name="type_id" aria-label="Select Type">
+                                    <select class="form-select select2" id="type_id" name="type_id" aria-label="Select Type">
                                         <option selected value="">Please Select...</option>
                                         @foreach($type as $typ)
                                         <option value="{{ $typ->id }}"
@@ -119,7 +119,7 @@
                             <div class="row mb-3">
                                 <label for="unit_id" class="col-sm-2 col-form-label">Unit : </label>
                                 <div class="col-sm-10">
-                                    <select class="form-select" id="unit_id" name="unit_id" aria-label="Select Unit">
+                                    <select class="form-select select2" id="unit_id" name="unit_id" aria-label="Select Unit">
                                         <option selected value="">Please Select...</option>
                                         @foreach($unit as $uni)
                                         <option value="{{ $uni->id }}"

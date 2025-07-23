@@ -79,7 +79,7 @@ class ProductController extends Controller
                 'product_image' => $save_url,
                 'status' => $request->stat,
                 'created_by' => Auth::user()->id,
-                'created_at' => Carbon::now(),
+                'created_at' => Carbon::now()
             ]);
 
             $notification = array(
@@ -116,11 +116,11 @@ class ProductController extends Controller
                 'product_image' => $request->product_image,
                 'status' => $request->stat,
                 'created_by' => Auth::user()->id,
-                'created_at' => Carbon::now(),
+                'created_at' => Carbon::now()
             ]);
 
             $notification = array(
-                'message' => 'Product Updated without Image Successfully',
+                'message' => 'Product Inserted without Image Successfully',
                 'alert-type' => 'success'
             );
 
@@ -192,7 +192,7 @@ class ProductController extends Controller
                 'product_image' => $save_url,
                 'status' => $request->stat,
                 'updated_by' => Auth::user()->id,
-                'updated_at' => Carbon::now(),
+                'updated_at' => Carbon::now()
             ]);
 
             $notification = array(
@@ -235,7 +235,7 @@ class ProductController extends Controller
                 'product_image' => $request->product_image,
                 'status' => $request->stat,
                 'updated_by' => Auth::user()->id,
-                'updated_at' => Carbon::now(),
+                'updated_at' => Carbon::now()
             ]);
 
             $notification = array(
