@@ -30,7 +30,7 @@
                                     <select class="form-select" id="emptype_id" name="emptype_id" aria-label="Select Type">
                                         <option selected value="">Please Select...</option>
                                         @foreach($emptype as $empt)
-                                        <option value="{{ $empt->id }}">{{ $empt->name }}</option>
+                                            <option value="{{ $empt->id }}">{{ $empt->name }}</option>
                                         @endforeach
                                     </select>
                                 </div>
@@ -64,7 +64,7 @@
                             <div class="row mb-3">
                                 <label for="employee_image" class="col-sm-2 col-form-label">Image : </label>
                                 <div class="form-group col-sm-10">
-                                    <input type="file" class="form-control" id="employee_image" name="employee_image">
+                                    <input type="file" class="form-control" id="employee_image" name="employee_image" accept=".png, .jpg, .jpeg">
                                 </div>
                             </div>
                             <!-- end row -->
@@ -89,80 +89,70 @@
 </div>
 
 <script type="text/javascript">
-$(document).ready(function() {
-    $('#myForm').validate({
-        rules: {
-            name: {
-                required: true,
+    $(document).ready(function() {
+        $('#myForm').validate({
+            rules: {
+                name: {
+                    required: true,
+                },
+                emptype_id: {
+                    required: true,
+                },
+                mobile_no: {
+                    required: true,
+                },
+                email: {
+                    required: true,
+                },
+                address: {
+                    required: true,
+                }
             },
-            emptype_id: {
-                required: true,
+            messages: {
+                name: {
+                    required: 'Please Enter Employee Name',
+                },
+                emptype_id: {
+                    required: 'Please Select Type',
+                },
+                mobile_no: {
+                    required: 'Please Enter Mobile Number',
+                },
+                email: {
+                    required: 'Please Enter Email',
+                },
+                address: {
+                    required: 'Please Enter Address',
+                }
             },
-            mobile_no: {
-                required: true,
+            errorElement: 'span',
+            errorPlacement: function(error, element) {
+                error.addClass('invalid-feedback');
+                element.closest('.form-group').append(error);
             },
-            email: {
-                required: true,
+            highlight: function(element, errorClass, validClass) {
+                $(element).addClass('is-invalid');
             },
-            address: {
-                required: true,
-            },
-            employee_image: {
-                required: true,
+            unhighlight: function(element, errorClass, validClass) {
+                $(element).removeClass('is-invalid');
             }
-        },
-        messages: {
-            name: {
-                required: 'Please Enter Employee Name',
-            },
-            emptype_id: {
-                required: 'Please Select Type',
-            },
-            mobile_no: {
-                required: 'Please Enter Mobile Number',
-            },
-            email: {
-                required: 'Please Enter Email',
-            },
-            address: {
-                required: 'Please Enter Address',
-            },
-            employee_image: {
-                required: 'Please Select One Image',
+        });
+
+        $('#employee_image').change(function(e) {
+            var reader = new FileReader();
+            reader.onload = function(e) {
+                $('#showImage').attr('src', e.target.result);
             }
-        },
-        errorElement: 'span',
-        errorPlacement: function(error, element) {
-            error.addClass('invalid-feedback');
-            element.closest('.form-group').append(error);
-        },
-        highlight: function(element, errorClass, validClass) {
-            $(element).addClass('is-invalid');
-        },
-        unhighlight: function(element, errorClass, validClass) {
-            $(element).removeClass('is-invalid');
-        },
-    });
-});
-</script>
+            reader.readAsDataURL(e.target.files['0']);
+            $("#btnDelImage").prop("hidden", false);
+        });
 
-<script type="text/javascript">
-$(document).ready(function() {
-    $('#employee_image').change(function(e) {
-        var reader = new FileReader();
-        reader.onload = function(e) {
-            $('#showImage').attr('src', e.target.result);
-        }
-        reader.readAsDataURL(e.target.files['0']);
-        $("#btnDelImage").prop("hidden", false);
+        $('#btnDelImage').click(function() {
+            $('#showImage').attr('src', "{{ url('upload/no_image.jpg') }}" );
+            $('#employee_image').val('');
+            $("#btnDelImage").prop("hidden", true);
+        });
     });
-
-    $('#btnDelImage').click(function() {
-        $('#showImage').attr('src', "{{ url('upload/no_image.jpg') }}" );
-        $('#employee_image').val('');
-        $("#btnDelImage").prop("hidden", true);
-    });
-});
 </script>
 
 @endsection

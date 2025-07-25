@@ -58,13 +58,13 @@
 
                             <div class="row mb-3">
                                 <label for="brand_id" class="col-sm-2 col-form-label">Brand : </label>
-                                <div class="col-sm-10">
+                                <div class="form-group col-sm-10">
                                     <select class="form-select select2" id="brand_id" name="brand_id" aria-label="Select Brand">
                                         <option selected value="">Please Select...</option>
                                         @foreach($brand as $brn)
-                                        <option value="{{ $brn->id }}"
-                                            {{ $brn->id == old('brand_id', $product->brand_id) ? 'selected' : '' }}>{{ $brn->name }}
-                                        </option>
+                                            <option value="{{ $brn->id }}"
+                                                {{ $brn->id == old('brand_id', $product->brand_id) ? 'selected' : '' }}>{{ $brn->name }}
+                                            </option>
                                         @endforeach
                                     </select>
                                 </div>
@@ -73,13 +73,13 @@
 
                             <div class="row mb-3">
                                 <label for="supplier_id" class="col-sm-2 col-form-label">Supplier : </label>
-                                <div class="col-sm-10">
+                                <div class="form-group col-sm-10">
                                     <select class="form-select select2" id="supplier_id" name="supplier_id" aria-label="Select Supplier">
                                         <option selected value="">Please Select...</option>
                                         @foreach($supplier as $supp)
-                                        <option value="{{ $supp->id }}"
-                                            {{ $supp->id == old('supplier_id', $product->supplier_id) ? 'selected' : '' }}>{{ $supp->name }}
-                                        </option>
+                                            <option value="{{ $supp->id }}"
+                                                {{ $supp->id == old('supplier_id', $product->supplier_id) ? 'selected' : '' }}>{{ $supp->name }}
+                                            </option>
                                         @endforeach
                                     </select>
                                 </div>
@@ -88,13 +88,13 @@
 
                             <div class="row mb-3">
                                 <label for="category_id" class="col-sm-2 col-form-label">Category : </label>
-                                <div class="col-sm-10">
+                                <div class="form-group col-sm-10">
                                     <select class="form-select select2" id="category_id" name="category_id" aria-label="Select Category">
                                         <option selected value="">Please Select...</option>
                                         @foreach($category as $cat)
-                                        <option value="{{ $cat->id }}"
-                                            {{ $cat->id == old('category_id', $product->category_id) ? 'selected' : '' }}>{{ $cat->name }}
-                                        </option>
+                                            <option value="{{ $cat->id }}"
+                                                {{ $cat->id == old('category_id', $product->category_id) ? 'selected' : '' }}>{{ $cat->name }}
+                                            </option>
                                         @endforeach
                                     </select>
                                 </div>
@@ -103,13 +103,13 @@
 
                             <div class="row mb-3">
                                 <label for="type_id" class="col-sm-2 col-form-label">Type : </label>
-                                <div class="col-sm-10">
+                                <div class="form-group col-sm-10">
                                     <select class="form-select select2" id="type_id" name="type_id" aria-label="Select Type">
                                         <option selected value="">Please Select...</option>
                                         @foreach($type as $typ)
-                                        <option value="{{ $typ->id }}"
-                                            {{ $typ->id == old('type_id', $product->type_id) ? 'selected' : '' }}>{{ $typ->name }}
-                                        </option>
+                                            <option value="{{ $typ->id }}"
+                                                {{ $typ->id == old('type_id', $product->type_id) ? 'selected' : '' }}>{{ $typ->name }}
+                                            </option>
                                         @endforeach
                                     </select>
                                 </div>
@@ -118,13 +118,13 @@
 
                             <div class="row mb-3">
                                 <label for="unit_id" class="col-sm-2 col-form-label">Unit : </label>
-                                <div class="col-sm-10">
-                                    <select class="form-select select2" id="unit_id" name="unit_id" aria-label="Select Unit">
+                                <div class="form-group col-sm-10">
+                                    <select class="form-select" id="unit_id" name="unit_id" aria-label="Select Unit">
                                         <option selected value="">Please Select...</option>
                                         @foreach($unit as $uni)
-                                        <option value="{{ $uni->id }}"
-                                            {{ $uni->id == old('unit_id', $product->unit_id) ? 'selected' : '' }}>{{ $uni->name }}
-                                        </option>
+                                            <option value="{{ $uni->id }}"
+                                                {{ $uni->id == old('unit_id', $product->unit_id) ? 'selected' : '' }}>{{ $uni->name }}
+                                            </option>
                                         @endforeach
                                     </select>
                                 </div>
@@ -165,13 +165,13 @@
 
                             <div class="row mb-3">
                                 <label for="vattype_id" class="col-sm-2 col-form-label">Vat Type : </label>
-                                <div class="col-sm-10">
+                                <div class="form-group col-sm-10">
                                     <select class="form-select" id="vattype_id" name="vattype_id" aria-label="Select Vat Type">
                                         <option selected value="">Please Select...</option>
                                         @foreach($vattype as $vattyp)
-                                        <option value="{{ $vattyp->id }}"
-                                            {{ $vattyp->id == old('vattype_id', $product->vattype_id) ? 'selected' : '' }}>{{ $vattyp->name }}
-                                        </option>
+                                            <option value="{{ $vattyp->id }}"
+                                                {{ $vattyp->id == old('vattype_id', $product->vattype_id) ? 'selected' : '' }}>{{ $vattyp->name }}
+                                            </option>
                                         @endforeach
                                     </select>
                                 </div>
@@ -220,9 +220,8 @@
 
                             <div class="row mb-3">
                                 <label for="stat" class="col-sm-2 col-form-label">Status : </label>
-                                <div class="col-sm-3">
+                                <div class="form-group col-sm-3">
                                     <select class="form-select" id="stat" name="stat" aria-label="Select Status">
-                                        <option selected value="">Please Select...</option>
                                         <option value="1" {{ "1" == old('status', $product->status) ? 'selected' : '' }}>Active</option>
                                         <option value="0" {{ "0" == old('status', $product->status) ? 'selected' : '' }}>Inactive</option>
                                     </select>
@@ -241,7 +240,7 @@
                             <div class="row mb-3">
                                 <label for="product_image" class="col-sm-2 col-form-label">Image : </label>
                                 <div class="form-group col-sm-10">
-                                    <input type="file" class="form-control" id="product_image" name="product_image">
+                                    <input type="file" class="form-control" id="product_image" name="product_image" accept=".png, .jpg, .jpeg">
                                 </div>
                             </div>
                             <!-- end row -->
@@ -271,52 +270,83 @@
 </div>
 
 <script type="text/javascript">
-$(document).ready(function() {
-    $('#myForm').validate({
-        rules: {
-            name: {
-                required: true,
+    $(document).ready(function() {
+        $('#myForm').validate({
+            rules: {
+                name: {
+                    required: true,
+                },
+                item_desc: {
+                    required: true,
+                },
+                brand_id: {
+                    required: true,
+                },
+                category_id: {
+                    required: true,
+                },
+                type_id: {
+                    required: true,
+                },
+                unit_id: {
+                    required: true,
+                },
+                vattype_id: {
+                    required: true,
+                }
             },
-            supplier_id: {
-                required: true,
+            messages: {
+                name: {
+                    required: 'Please Enter Product Name',
+                },
+                item_desc: {
+                    required: 'Please Enter Description',
+                },
+                brand_id: {
+                    required: 'Please Select Brand',
+                },
+                category_id: {
+                    required: 'Please Select Category',
+                },
+                type_id: {
+                    required: 'Please Select Type',
+                },
+                unit_id: {
+                    required: 'Please Select Unit',
+                },
+                vattype_id: {
+                    required: 'Please Select Vat Type',
+                }
             },
-            unit_id: {
-                required: true,
+            errorElement: 'span',
+            errorPlacement: function(error, element) {
+                error.addClass('invalid-feedback');
+                element.closest('.form-group').append(error);
             },
-            category_id: {
-                required: true,
+            highlight: function(element, errorClass, validClass) {
+                $(element).addClass('is-invalid');
             },
-        },
-        messages: {
-            name: {
-                required: 'Please Enter Your Product Name',
-            },
-            supplier_id: {
-                required: 'Please Select One Supplier',
-            },
-            unit_id: {
-                required: 'Please Select One Unit',
-            },
-            category_id: {
-                required: 'Please Select One Category',
-            },
-        },
-        errorElement: 'span',
-        errorPlacement: function(error, element) {
-            error.addClass('invalid-feedback');
-            element.closest('.form-group').append(error);
-        },
-        highlight: function(element, errorClass, validClass) {
-            $(element).addClass('is-invalid');
-        },
-        unhighlight: function(element, errorClass, validClass) {
-            $(element).removeClass('is-invalid');
-        },
-    });
-});
-</script>
+            unhighlight: function(element, errorClass, validClass) {
+                $(element).removeClass('is-invalid');
+            }
+        });
 
-<script>
+        $('#product_image').change(function(e) {
+            var reader = new FileReader();
+            reader.onload = function(e) {
+                $('#showImage').attr('src', e.target.result);
+            }
+            reader.readAsDataURL(e.target.files['0']);
+            $("#btnDelImage").prop("hidden", false);
+        });
+
+        $('#btnDelImage').click(function() {
+            $('#showImage').attr('src', "{{ url('upload/no_image.jpg') }}" );
+            $('#product_image').val('');
+            $("#btnDelImage").prop("hidden", true);
+        });
+    });
+
     document.addEventListener('DOMContentLoaded', function() {
         new AutoNumeric('#quantity', {
             digitGroupSeparator: ',',
@@ -327,25 +357,6 @@ $(document).ready(function() {
             unformatOnSubmit: true
         });
     });
-</script>
-
-<script type="text/javascript">
-$(document).ready(function() {
-    $('#product_image').change(function(e) {
-        var reader = new FileReader();
-        reader.onload = function(e) {
-            $('#showImage').attr('src', e.target.result);
-        }
-        reader.readAsDataURL(e.target.files['0']);
-        $("#btnDelImage").prop("hidden", false);
-    });
-
-    $('#btnDelImage').click(function() {
-        $('#showImage').attr('src', "{{ url('upload/no_image.jpg') }}" );
-        $('#product_image').val('');
-        $("#btnDelImage").prop("hidden", true);
-    });
-});
 </script>
 
 @endsection
