@@ -191,7 +191,7 @@
                             <div class="row mb-3">
                                 <label for="pdate" class="col-sm-2 col-form-label">Date : </label>
                                 <div class="form-group col-sm-3">
-                                    <input type="date" class="form-control example-pdate-input" id="pdate" name="pdate"  value="{{ old('pdate', $pdate) }}">
+                                    <input type="date" class="form-control example-pdate-input" id="pdate" name="pdate" value="{{ old('pdate', $pdate) }}">
                                 </div>
                             </div>
                             <!-- end row -->
