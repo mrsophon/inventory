@@ -30,14 +30,19 @@ class EmployeeController extends Controller
 
         if ($request->file('employee_image')) {
 
+            $folderPath = 'upload/employee';
+            if (!is_dir($folderPath)) {
+                mkdir($folderPath, 0777, true);
+            }
+
             $image = $request->file('employee_image');
             $name_gen = hexdec(uniqid()).'.'.$image->getClientOriginalExtension(); // 343434.png
-            // Image::make($image)->resize(200,200)->save('upload/employee/'.$name_gen);
+            // Image::make($image)->resize(200,200)->save($folderPath.'/'.$name_gen);
             Image::make($image)->resize(800, null, function ($constraint) {
                 $constraint->aspectRatio();
                 $constraint->upsize();
-            })->save('upload/employee/'.$name_gen);
-            $save_url = 'upload/employee/'.$name_gen;
+            })->save($folderPath.'/'.$name_gen);
+            $save_url = $folderPath.'/'.$name_gen;
 
             Employee::insert([
                 'name' => $request->name,
@@ -94,14 +99,19 @@ class EmployeeController extends Controller
         $employee_id = $request->id;
         if ($request->file('employee_image')) {
 
+            $folderPath = 'upload/employee';
+            if (!is_dir($folderPath)) {
+                mkdir($folderPath, 0777, true);
+            }
+
             $image = $request->file('employee_image');
             $name_gen = hexdec(uniqid()).'.'.$image->getClientOriginalExtension(); // 343434.png
-            // Image::make($image)->resize(200,200)->save('upload/employee/'.$name_gen);
+            // Image::make($image)->resize(200,200)->save($folderPath.'/'.$name_gen);
             Image::make($image)->resize(800, null, function ($constraint) {
                 $constraint->aspectRatio();
                 $constraint->upsize();
-            })->save('upload/employee/'.$name_gen);
-            $save_url = 'upload/employee/'.$name_gen;
+            })->save($folderPath.'/'.$name_gen);
+            $save_url = $folderPath.'/'.$name_gen;
 
             $employees = Employee::findOrFail($employee_id);
             $img = $employees->employee_image;

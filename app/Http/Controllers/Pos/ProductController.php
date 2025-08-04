@@ -43,14 +43,19 @@ class ProductController extends Controller
 
         if ($request->file('product_image')) {
 
+            $folderPath = 'upload/product';
+            if (!is_dir($folderPath)) {
+                mkdir($folderPath, 0777, true);
+            }
+
             $image = $request->file('product_image');
             $name_gen = hexdec(uniqid()).'.'.$image->getClientOriginalExtension(); // 343434.png
-            // Image::make($image)->resize(200,200)->save('upload/product/'.$name_gen);
+            // Image::make($image)->resize(200,200)->save($folderPath.'/'.$name_gen);
             Image::make($image)->resize(800, null, function ($constraint) {
                 $constraint->aspectRatio();
                 $constraint->upsize();
-            })->save('upload/product/'.$name_gen);
-            $save_url = 'upload/product/'.$name_gen;
+            })->save($folderPath.'/'.$name_gen);
+            $save_url = $folderPath.'/'.$name_gen;
 
             $pdate = date('Y-m-d',strtotime($request->pdate));
 
@@ -150,14 +155,19 @@ class ProductController extends Controller
         $product_id = $request->id;
         if ($request->file('product_image')) {
 
+            $folderPath = 'upload/product';
+            if (!is_dir($folderPath)) {
+                mkdir($folderPath, 0777, true);
+            }
+
             $image = $request->file('product_image');
             $name_gen = hexdec(uniqid()).'.'.$image->getClientOriginalExtension(); // 343434.png
-            // Image::make($image)->resize(200,200)->save('upload/product/'.$name_gen);
+            // Image::make($image)->resize(200,200)->save($folderPath.'/'.$name_gen);
             Image::make($image)->resize(800, null, function ($constraint) {
                 $constraint->aspectRatio();
                 $constraint->upsize();
-            })->save('upload/product/'.$name_gen);
-            $save_url = 'upload/product/'.$name_gen;
+            })->save($folderPath.'/'.$name_gen);
+            $save_url = $folderPath.'/'.$name_gen;
 
             $products = Product::findOrFail($product_id);
             $img = $products->product_image;

@@ -72,7 +72,7 @@
                             <div class="row mb-3">
                                 <label for="showImage" class="col-sm-2 col-form-label"> </label>
                                 <div class="form-group col-sm-10">
-                                    <img class="rounded avatar-lg" id="showImage" name="showImage" src="{{ url('upload/no_image.jpg') }}" alt="Employee Image"> &nbsp;
+                                    <img class="rounded avatar-lg" id="showImage" name="showImage" src="{{ url('upload/no_image.jpg') }}" alt="Employee Image" style="object-fit:contain;"> &nbsp;
                                     <button type="button" class="btn btn-warning position-absolute top-0" id="btnDelImage" hidden>Delete Image</button>
                                 </div>
                             </div>
