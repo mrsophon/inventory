@@ -79,7 +79,9 @@
                                         <img class="rounded avatar-lg" id="showImage" name="showImage" src="{{ url('upload/no_image.jpg') }}" alt="Employee Image" style="object-fit:contain;"> &nbsp;
                                         <button type="button" class="btn btn-warning position-absolute top-0" id="btnDelImage" hidden>Delete Image</button>
                                     @else
-                                        <img class="rounded avatar-lg" id="showImage" name="showImage" src="{{ asset($employee->employee_image) }}" alt="Employee Image" style="object-fit:contain;"> &nbsp;
+                                        <a href="{{ asset($employee->employee_image) }}" data-toggle="lightbox" data-size="xl" id="imageLink">
+                                            <img class="rounded avatar-lg" id="showImage" name="showImage" src="{{ asset($employee->employee_image) }}" alt="Employee Image" style="object-fit:contain;">
+                                        </a> &nbsp;
                                         <button type="button" class="btn btn-warning position-absolute top-0" id="btnDelImage">Delete Image</button>
                                     @endif
                                 </div>

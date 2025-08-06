@@ -82,6 +82,7 @@
     <script src="{{ asset('backend/assets/libs/node-waves/waves.min.js') }}"></script>
 
     <script src="{{ asset('backend/assets/js/autoNumeric.min.js') }}"></script>
+    <script src="{{ asset('backend/assets/js/lightbox.min.js') }}"></script>
 
     <!-- apexcharts -->
     <script src="{{ asset('backend/assets/libs/apexcharts/apexcharts.min.js') }}"></script>
