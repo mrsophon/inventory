@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Aug 06, 2025 at 01:13 PM
+-- Generation Time: Aug 11, 2025 at 01:12 PM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -126,7 +126,7 @@ CREATE TABLE IF NOT EXISTS `employees` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Dumping data for table `employees`
@@ -136,7 +136,8 @@ INSERT INTO `employees` (`id`, `name`, `emptype_id`, `employee_image`, `mobile_n
 (1, 'สมชาย ตัวอย่าง', 1, 'upload/employee/1837888738222222.jpg', '0812345678', 'somchai@mail.com', '123\r\n456\r\n789', 1, 1, 2, '2025-01-27 08:30:04', '2025-07-17 10:14:46'),
 (2, 'สมหญิง 2', 2, 'upload/employee/1839694043576810.jpg', '08123478901', 'abcd@mail.com', '4567\r\n89\r\n0112', 1, 1, 2, '2025-01-27 10:43:41', '2025-08-06 08:29:19'),
 (3, 'Name3', 3, 'upload/employee/1839517956898526.jpg', '-', 'abcd@mail.com', '1113', 1, 2, 2, '2025-07-18 07:02:03', '2025-08-04 09:50:30'),
-(4, 'Name', 1, 'upload/employee/1838432791464982.jpg', 'Mobile', 'Email@mail.com', 'Address', 1, 2, 2, '2025-07-20 12:29:03', '2025-08-04 06:41:37');
+(4, 'Name', 1, 'upload/employee/1838432791464982.jpg', 'Mobile', 'Email@mail.com', 'Address', 1, 2, 2, '2025-07-20 12:29:03', '2025-08-04 06:41:37'),
+(5, 'Name4', 1, NULL, 'mobile', 'a@hotmail.com', 'adress', 1, 2, NULL, '2025-08-11 10:41:55', NULL);
 
 -- --------------------------------------------------------
 
