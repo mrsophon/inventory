@@ -41,15 +41,19 @@
                             <tbody>
                                 @foreach($employees as $key => $item)
                                 <tr>
-                                    <td> {{ $key+1}} </td>
+                                    <td> {{ $key+1 }} </td>
                                     <td> {{ $item->name }} </td>
                                     <!-- <td> <img src="{{ asset( $item->employee_image ) }}"
                                             style="width:60px; height:50px"> </td> -->
                                     <td>
                                         @if($item->employee_image == null)
-                                            <img src="{{ url('upload/no_image.jpg') }}" style="height:50px; object-fit:contain;">
+                                            <a href="{{ url('upload/no_image.jpg') }}" data-fancybox="{{ 'image'.$key+1 }}" id="imageLink">
+                                                <img src="{{ url('upload/no_image.jpg') }}" style="height:50px; object-fit:contain;">
+                                            </a>
                                         @else
-                                            <img src="{{ asset( $item->employee_image ) }}" style="height:50px; object-fit:contain;">
+                                            <a href="{{ asset( $item->employee_image ) }}" data-fancybox="{{ 'image'.$key+1 }}" id="imageLink">
+                                                <img src="{{ asset( $item->employee_image ) }}" style="height:50px; object-fit:contain;">
+                                            </a>
                                         @endif
                                     </td>
                                     <td> {{ $item['emptype']['name'] }} </td>

@@ -76,12 +76,12 @@
                                 <label for="showImage" class="col-sm-2 col-form-label"> </label>
                                 <div class="form-group col-sm-10">
                                     @if($employee->employee_image == null)
-                                        <a href="{{ url('upload/no_image.jpg') }}" data-toggle="lightbox" data-size="xl" id="imageLink">
+                                        <a href="{{ url('upload/no_image.jpg') }}" data-fancybox="image" id="imageLink">
                                             <img class="rounded avatar-lg" id="showImage" name="showImage" src="{{ url('upload/no_image.jpg') }}" alt="Employee Image" style="object-fit:contain;">
                                         </a> &nbsp;
                                         <button type="button" class="btn btn-warning position-absolute top-0" id="btnDelImage" hidden>Delete Image</button>
                                     @else
-                                        <a href="{{ asset($employee->employee_image) }}" data-toggle="lightbox" data-size="xl" id="imageLink">
+                                        <a href="{{ asset($employee->employee_image) }}" data-fancybox="image" id="imageLink">
                                             <img class="rounded avatar-lg" id="showImage" name="showImage" src="{{ asset($employee->employee_image) }}" alt="Employee Image" style="object-fit:contain;">
                                         </a> &nbsp;
                                         <button type="button" class="btn btn-warning position-absolute top-0" id="btnDelImage">Delete Image</button>

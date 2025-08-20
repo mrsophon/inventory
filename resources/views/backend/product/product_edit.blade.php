@@ -249,10 +249,14 @@
                                 <label for="showImage" class="col-sm-2 col-form-label"> </label>
                                 <div class="form-group col-sm-10">
                                     @if($product->product_image == null)
-                                        <img class="rounded avatar-lg" id="showImage" name="showImage" src="{{ url('upload/no_image.jpg') }}" alt="Product Image" style="object-fit:contain;"> &nbsp;
+                                        <a href="{{ url('upload/no_image.jpg') }}" data-fancybox="image" id="imageLink">
+                                            <img class="rounded avatar-lg" id="showImage" name="showImage" src="{{ url('upload/no_image.jpg') }}" alt="Product Image" style="object-fit:contain;">
+                                        </a> &nbsp;
                                         <button type="button" class="btn btn-warning position-absolute top-0" id="btnDelImage" hidden>Delete Image</button>
                                     @else
-                                        <img class="rounded avatar-lg" id="showImage" name="showImage" src="{{ asset($product->product_image) }}" alt="Product Image" style="object-fit:contain;"> &nbsp;
+                                        <a href="{{ asset($product->product_image) }}" data-fancybox="image" id="imageLink">
+                                            <img class="rounded avatar-lg" id="showImage" name="showImage" src="{{ asset($product->product_image) }}" alt="Product Image" style="object-fit:contain;">
+                                        </a> &nbsp;
                                         <button type="button" class="btn btn-warning position-absolute top-0" id="btnDelImage">Delete Image</button>
                                     @endif
                                 </div>
@@ -338,12 +342,19 @@
             }
             reader.readAsDataURL(e.target.files['0']);
             $("#btnDelImage").prop("hidden", false);
+
+            const file = this.files[0];
+            if (file) {
+                const fileURL = URL.createObjectURL(file); // Create a temporary URL for the selected file
+                $('#imageLink').attr('href', fileURL);
+            }
         });
 
         $('#btnDelImage').click(function() {
             $('#showImage').attr('src', "{{ url('upload/no_image.jpg') }}" );
             $('#product_image').val('');
             $("#btnDelImage").prop("hidden", true);
+            $('#imageLink').attr('href', "{{ url('upload/no_image.jpg') }}" );
         });
     });
 

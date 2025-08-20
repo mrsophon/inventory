@@ -81,9 +81,6 @@
     <script src="{{ asset('backend/assets/libs/simplebar/simplebar.min.js') }}"></script>
     <script src="{{ asset('backend/assets/libs/node-waves/waves.min.js') }}"></script>
 
-    <script src="{{ asset('backend/assets/js/autoNumeric.min.js') }}"></script>
-    <script src="{{ asset('backend/assets/js/lightbox.min.js') }}"></script>
-
     <!-- apexcharts -->
     <script src="{{ asset('backend/assets/libs/apexcharts/apexcharts.min.js') }}"></script>
 
@@ -147,10 +144,21 @@
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/notify/0.4.2/notify.min.js"></script>
 
-    <!--  For Select2 -->
+    <!-- For Select2 -->
     <script src="{{ asset('backend/assets/libs/select2/js/select2.min.js') }}"></script>
     <script src="{{ asset('backend/assets/js/pages/form-advanced.init.js') }}"></script>
-    <!-- end  For Select2 -->
+    <!-- end For Select2 -->
+
+    <!-- For autoNumeric -->
+    <script src="{{ asset('backend/assets/js/autoNumeric.min.js') }}"></script>
+
+    <!-- For Fancybox -->
+    <link rel="stylesheet" href="{{ asset('backend/assets/css/fancybox.css') }}">
+    <script src="{{ asset('backend/assets/js/fancybox.umd.js') }}"></script>
+    <script>
+        Fancybox.bind("[data-fancybox]", {});
+    </script>
+
 </body>
 
 </html>
