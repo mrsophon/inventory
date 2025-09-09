@@ -8,7 +8,7 @@
         <div class="row">
             <div class="col-12">
                 <div class="page-title-box d-sm-flex align-items-center justify-content-between">
-                    <h4 class="mb-sm-0">Employee All</h4>
+                    <h4 class="mb-sm-0">Setting > Employee > All Employee</h4>
                 </div>
             </div>
         </div>
@@ -32,9 +32,9 @@
                                 <tr>
                                     <th>#</th>
                                     <th>Name</th>
-                                    <th>Employee Image </th>
-                                    <th>Employee Type</th>
-                                    <!-- <th>Email</th> -->
+                                    <th>Image</th>
+                                    <th>Type</th>
+                                    <th>Email</th>
                                     <th>Action</th>
                                 </tr>
                             </thead>
@@ -57,7 +57,7 @@
                                         @endif
                                     </td>
                                     <td> {{ $item['emptype']['name'] }} </td>
-                                    <!-- <td> {{ $item->email }} </td> -->
+                                    <td> {{ $item->email }} </td>
                                     <td>
                                         <a href="{{ route('employee.edit',$item->id) }}" class="btn btn-info sm"
                                             title="Edit Data"> <i class="fas fa-edit"></i> </a>

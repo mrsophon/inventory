@@ -135,7 +135,7 @@
                         <span>Employee</span>
                     </a>
                     <ul class="sub-menu" aria-expanded="false">
-                        <li><a href="{{ route('employee.all') }}">All Employees</a></li>
+                        <li><a href="{{ route('employee.all') }}">All Employee</a></li>
                     </ul>
                 </li>
             </ul>

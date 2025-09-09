@@ -8,7 +8,7 @@
         <div class="row">
             <div class="col-12">
                 <div class="page-title-box d-sm-flex align-items-center justify-content-between">
-                    <h4 class="mb-sm-0">Product All</h4>
+                    <h4 class="mb-sm-0">Manage > Product > All Product</h4>
                 </div>
             </div>
         </div>
@@ -32,7 +32,7 @@
                                 <tr>
                                     <th>#</th>
                                     <th>Name</th>
-                                    <th>Supplier</th>
+                                    <th>Image</th>
                                     <th>Unit</th>
                                     <th>Category</th>
                                     <th>Action</th>
@@ -44,7 +44,18 @@
                                 <tr>
                                     <td> {{ $key+1}} </td>
                                     <td> {{ $item->name }} </td>
-                                    <td> {{ $item['supplier']['name'] }} </td>
+                                    <!-- <td> {{ $item['supplier']['name'] }} </td> -->
+                                    <td>
+                                        @if($item->product_image == null)
+                                            <a href="{{ url('upload/no_image.jpg') }}" data-fancybox="{{ 'image'.$key+1 }}" id="imageLink">
+                                                <img src="{{ url('upload/no_image.jpg') }}" style="height:50px; object-fit:contain;">
+                                            </a>
+                                        @else
+                                            <a href="{{ asset( $item->product_image ) }}" data-fancybox="{{ 'image'.$key+1 }}" id="imageLink">
+                                                <img src="{{ asset( $item->product_image ) }}" style="height:50px; object-fit:contain;">
+                                            </a>
+                                        @endif
+                                    </td>
                                     <td> {{ $item['unit']['name'] }} </td>
                                     <td> {{ $item['category']['name'] }} </td>
                                     <td>
